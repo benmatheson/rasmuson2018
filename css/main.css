@@ -123,6 +123,7 @@ textarea {
         width: 90%;
         min-height: 500px;
         margin:auto;
+        margin-bottom: 2%;
       }
 
 
@@ -148,6 +149,7 @@ position: absolute;
 top: 20px;
 left: 20px;
 background-color: rgba(0,0,0,.66);
+background-color: rgba(255,255,255,.66);
 width: 250px;
 /*height: 100px;*/
 z-index: 100;
@@ -162,6 +164,7 @@ font-size: 2rem;
 opacity: 1;
 line-height: 2rem;
 color: white;
+color: black;
 margin: auto;
 padding: 4%;
 

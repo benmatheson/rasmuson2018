@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "cities",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3338" } },
+"features": [
+{ "type": "Feature", "properties": { "Community Name": "Anchorage", "lat": 61.2163, "lon": -149.8948 }, "geometry": { "type": "Point", "coordinates": [ 219655.912318238231819, 1255118.780564485117793 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Bethel", "lat": 60.8021, "lon": -161.7706 }, "geometry": { "type": "Point", "coordinates": [ -420504.043071914813481, 1226629.731293136253953 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Fairbanks", "lat": 64.8357, "lon": -147.7336 }, "geometry": { "type": "Point", "coordinates": [ 296908.40806576248724, 1666752.094835825264454 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Juneau", "lat": 58.3021, "lon": -134.4106 }, "geometry": { "type": "Point", "coordinates": [ 1128418.691113365115598, 1090119.418103978503495 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Kotzebue", "lat": 66.8959, "lon": -162.5869 }, "geometry": { "type": "Point", "coordinates": [ -376760.339934962568805, 1906424.599041826790199 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Nome", "lat": 64.4976, "lon": -165.3841 }, "geometry": { "type": "Point", "coordinates": [ -543983.338663210393861, 1661757.447109572356567 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Sitka", "lat": 57.0583, "lon": -135.3448 }, "geometry": { "type": "Point", "coordinates": [ 1114574.190823749639094, 941150.634698149980977 ] } }
+]
+}
