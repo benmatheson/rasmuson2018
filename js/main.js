@@ -120,10 +120,10 @@ map.addSource('rasShape', {
             'circle-color': [
                 'match',
                 ['get', 'Program'],
-                'Tier 1', 'rgba(69, 178, 66, .3)',
-                'Tier 2', 'rgba(178, 66, 69, .5)',
-                'Individual Artist Award', '#943bd0',
-                'Foundation Initiated', '#3bb2d0',
+                'Tier 1', '#4789c8 ',
+                'Tier 2', '#72cac3',
+                'Individual Artist Award', '#e09641',
+                'Foundation Initiated', '#a5c6be',
                 'Sabbatical', '#3bb2d0',
                 /* other */ '#ccc'
             ],
@@ -151,6 +151,7 @@ map.addLayer({
                         "text-offset": [1, 0.5],
 
             "text-font": ["Open Sans Bold","Arial Unicode MS Regular"],
+            // "text-font": ["Fira Sans Regular"],
             "text-size": 12,
             // "text-weight": "bold"
         },
