@@ -374,7 +374,7 @@ console.log(featProgram);
            var popMultiple = currentData.map(function (el) {
 
 return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
- ${el.WebTitle}
+ <p class="indent">${el.WebTitle}</p>
          <br />`
 
                 })
