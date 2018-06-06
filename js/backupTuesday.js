@@ -1,6 +1,3 @@
-console.log("RASAK");
-console.log(ras_ak);
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'
 
 var map = new mapboxgl.Map({
@@ -16,19 +13,17 @@ var map = new mapboxgl.Map({
 });
 
 var red = './data/ras_ak_red.geojson';
-// var red_fake = './data/ras_ak_red_fake.geojson';
-// var red_fake = './data/ras_ak_red_fake.geojson';
-
-//replaces teh old one.
-
-var red_fake = './data/citiesAll_fake.geojson';
+var red_fake = './data/ras_ak_red_fake.geojson';
+var red_fake = './data/ras_ak_red_fake.geojson';
 
 
 // var ak_simple_fake = './data/alaska_simplified_fake.geojson';
 var ak_simple_fake = './data/alaska_fake.geojson';
 
 
-var cities_fake = './data/cities_fake.geojson';
+
+// var cities_fake = './data/cities_fake.geojson';
+var cities_fake = './data/allCities_fake.geojson';
 
 
 
@@ -105,10 +100,10 @@ map.addSource('rasShape', {
 
 'circle-radius': [
                 'match',
-                ['get', 'loc'],
-                'Anchorage, AK', 18,
-                'Juneau, AK', 8,
-                'Fairbanks, AK', 14,
+                ['get', 'ProjectLocation'],
+                'Anchorage', 18,
+                'Juneau', 8,
+                'Fairbanks', 14,
                 /* other */ 6
             ],
 
@@ -138,7 +133,7 @@ map.addSource('rasShape', {
                 'Tier 2', '#72cac3',
                 'Individual Artist Award', '#e09641',
                 'Foundation Initiated', '#a5c6be',
-                'Sabbatical', '#ea9fdc',
+                'Sabbatical', '#3bb2d0',
                 /* other */ '#ccc'
             ],
 
@@ -208,7 +203,6 @@ map.scrollZoom.disable();
 })
 
 
-var currentProgram;
 
 function allGrants () { 
 
@@ -221,15 +215,13 @@ function t1 () {
 
 map.setFilter('ras2', ['in', 'Program', 'Tier 1']);
 
-var currentProgram =  "Tier 1";
-console.log(currentProgram)
+
 }
 
 
 function t2() {
 map.setFilter('ras2', ['in', 'Program', 'Tier 2']);
 
-var currentProgram =  "Tier 2";
 
 
 }
@@ -250,8 +242,6 @@ map.setFilter('ras2', ['in', 'Program', 'Sabbatical']);
 
 }
 
-console.log("CURR PROG");
-console.log(currentProgram);
 
 
 
@@ -259,129 +249,26 @@ console.log(currentProgram);
 
     // Create a popup, but don't add it to the map yet.
     var popup = new mapboxgl.Popup({
-        closeButton: true,
-        closeOnClick: true
+        closeButton: false,
+        closeOnClick: false
     });
 
 
-// map.on('mouseenter', 'ras2', function(e) {
-//         // Change the cursor style as a UI indicator.
-//         map.getCanvas().style.cursor = 'pointer';
-
-
-//         ///////getting from teh JSON
-
-
-
-//         var projLoc= e.features[0].properties['loc'];
-
-
-
-//         var featProgram = e.features[0].properties.Program;
-
-//         var currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
-
-
-
-// console.log("feet");
-// console.log(featProgram);
-
-//         var coordinates = e.features[0].geometry.coordinates.slice();
-//         // var des = e.features[0].properties['Web Title'];
-//         // var name = e.features[0].properties['Organization Name'];
-//         // var award = e.features[0].properties['Award Amount'];
-
-//         var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc}<br />
-// 					<h3>Project Location: </h3>${projLoc}  <br />      				
-// 					<h3>Award: </h3>${currentData[0].AwardAmount} 
-//         				<br />
-//         				<h3>Description: </h3>${projLoc}</div>`
-
-
-//            var popMultiple = currentData.map(function (el) {
-
-// return `<h4> ${el.OrganizationName}</h4>
-//  ${el.WebTitle}
-// Award: ${el.AwardAmount}
-//          <br />`
-
-//                 })
-
-//                 var popDiv = `<div class="pop">${popMultiple}</div>`
-
-
-
-//         // Ensure that if the map is zoomed out such that multiple
-//         // copies of the feature are visible, the popup appears
-//         // over the copy being pointed to.
-//         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-//             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-//         }
-
-//         // Populate the popup and set its coordinates
-//         // based on the feature found.
-//         popup.setLngLat(coordinates)
-//             .setHTML(popDiv)
-//             .addTo(map);
-//     });
-
-//     map.on('mouseleave', 'ras2', function() {
-//         map.getCanvas().style.cursor = '';
-//         popup.remove();
-//     });
-
-
-map.addControl(new mapboxgl.NavigationControl());
-
-
-
-//##########click test
-
-map.on('mouseover', 'ras2', function(e) {
+map.on('mouseenter', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
-
-        ///////getting from teh JSON
-
-
-
-        var projLoc= e.features[0].properties['loc'];
-
-
-
-        var featProgram = e.features[0].properties.Program;
-
-        var currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
-
-
-
-console.log("feet");
-console.log(featProgram);
-
         var coordinates = e.features[0].geometry.coordinates.slice();
-        // var des = e.features[0].properties['Web Title'];
-        // var name = e.features[0].properties['Organization Name'];
-        // var award = e.features[0].properties['Award Amount'];
+        var des = e.features[0].properties['Web Title'];
+        var name = e.features[0].properties['Organization Name'];
+        var award = e.features[0].properties['Award Amount'];
+        var projLoc= e.features[0].properties['ProjectLocation'];
 
-        var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc}<br />
-          <h3>Project Location: </h3>${projLoc}  <br />             
-          <h3>Award: </h3>${currentData[0].AwardAmount} 
-                <br />
-                <h3>Description: </h3>${projLoc}</div>`
-
-
-           var popMultiple = currentData.map(function (el) {
-
-return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
- ${el.WebTitle}
-         <br />`
-
-                })
-
-                var popDiv = `<div class="pop">${popMultiple.join('')}</div>`
-
-
+        var popContent = `<div class="pop"><h3>Recipient: </h3>${name}<br />
+					<h3>Project Location: </h3>${projLoc}  <br />      				
+					<h3>Award: </h3>${award} 
+        				<br />
+        				<h3>Description: </h3>${des}</div>`
 
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears
@@ -393,23 +280,21 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates)
-            .setHTML(popDiv)
+            .setHTML(popContent)
             .addTo(map);
     });
 
-
-
-    map.on('mouseleave', 'ras2', function(e) {
+    map.on('mouseleave', 'ras2', function() {
         map.getCanvas().style.cursor = '';
-        console.log(e);
-       if (e.features.properties['loc'] !== "Anchorage, AK") 
-
-        {popup.remove()};   
-
-     popup.remove();
+        popup.remove();
     });
 
-//###########click test
+
+map.addControl(new mapboxgl.NavigationControl());
+
+
+
+
 
 
 
