@@ -357,7 +357,7 @@ map.on('mouseover', 'ras2', function(e) {
 
 
 console.log("feet");
-console.log(featProgram);
+console.log(e.features);
 
         var coordinates = e.features[0].geometry.coordinates.slice();
         // var des = e.features[0].properties['Web Title'];
@@ -399,14 +399,22 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
 
 
 
-    map.on('mouseleave', 'ras2', function(e) {
+    map.on('mouseleave', 'ras2', function(f) {
         map.getCanvas().style.cursor = '';
-        console.log(e);
-       if (e.features.properties['loc'] !== "Anchorage, AK") 
+            // var features = map.queryRenderedFeatures(e.point);
 
-        {popup.remove()};   
+        // console.log(features);
+        console.log(f.features);
+       if (f.features[0].properties.loc != "Anchorage, AK") 
 
-     popup.remove();
+        {
+          popup.remove()
+          console.log("it aint' anchorage");
+        }  
+
+    else console.log("it's anc");
+
+    // popup.remove();
     });
 
 //###########click test

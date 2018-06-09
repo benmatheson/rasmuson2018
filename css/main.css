@@ -136,12 +136,36 @@ textarea {
     border-radius: 50%;
     display: inline-block;
     float: left;
+    margin-right: 3px;
 }
+
+.border {
+
+border: solid white 1px;
+
+
+}
+
+
+
+
+.dotBig {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    display: inline-block;
+    float: right;
+    transform: translateY(-5px);
+    margin-right: 3px;
+}
+
 
     .mapboxgl-popup {
         max-width: 400px;
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
         animation: popTrans, 4s, linear, .5s;
+        z-index: 99;
+
         /*background-color: pink;*/
     }
 
@@ -219,11 +243,73 @@ display: flex;
 justify-content: space-between;
 flex-direction: column;
 top: 20px;
-left: 73%;
+left: 84%;
 width: 190px;
 
+z-index: 95;
+
+}
+
+.sizeKey {
+
+position: absolute;
+bottom: 50px;
+width: 10%;
+left: 84%;
+background-color: rgba(0,0,0,.0);
+margin-top: 5px;
+font-size: .7rem;
+height: 40px;
+z-index: 90;
+
+
+/*text-align: justify;*/
+    /*text-justify: inter-word;*/
+
+/*color: pink;*/
+  
+
+
+}
+
+
+.sizeKeyText{
+
+position: absolute;
+bottom: 20px;
+left: 84%;
+width: 20%;
+
+height: 40px;
 z-index: 100;
 
+  font-family: "Fira Sans", sans-serif;
+    font-style: italic;
+    color: white;
+
+/*text-align: right;*/
+
+ text-align: justify;
+ text-justify: inter-word;
+
+text-align:justify;
+    text-align-last: justify;
+
+
+}
+
+@keyframes fade {
+
+from {
+opacity: 0;
+
+}
+
+
+to {
+opacity: 1;
+
+}
 
 
 
@@ -237,7 +323,7 @@ background-color: rgba(255,255,255,.88);
 
 width: 150px;
 /*height: 30px;*/
-padding: 9px;
+padding: 11px;
 margin-top: 5px;
 border: none;
 border-radius: 2px;
@@ -266,6 +352,7 @@ color: whitesmoke;
 font-size: 11px;
 line-height: 100%;
 max-height: 250px;
+animation: fade .3s;
 
 /*background-color: rgba(255,255,255,.08);*/
 
