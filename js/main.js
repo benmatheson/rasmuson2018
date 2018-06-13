@@ -21,14 +21,15 @@ var red = './data/ras_ak_red.geojson';
 
 //replaces teh old one.
 
-var red_fake = './data/citiesAll_fake.geojson';
+// var red_fake = './data/citiesAll_fake.geojson';
+var red_fake = './data/citiesdot_fake.geojson';
 
 
 // var ak_simple_fake = './data/alaska_simplified_fake.geojson';
 var ak_simple_fake = './data/alaska_fake.geojson';
 
 
-var cities_fake = './data/cities_fake.geojson';
+var cities_fake = './data/city_labels_fake.geojson';
 
 
 
@@ -73,7 +74,7 @@ map.addSource('rasShape', {
 
     'paint': {
 
-            "fill-color": "whitesmoke"
+            "fill-color": "#f4f4f2"
 
     }
 
@@ -109,7 +110,7 @@ map.addSource('rasShape', {
                 'Anchorage, AK', 18,
                 'Juneau, AK', 8,
                 'Fairbanks, AK', 14,
-                /* other */ 6
+                /* other */ 5
             ],
 
 
@@ -138,7 +139,7 @@ map.addSource('rasShape', {
                 'Tier 2', '#72cac3',
                 'Individual Artist Award', '#e09641',
                 'Foundation Initiated', '#a5c6be',
-                'Sabbatical', '#ea9fdc',
+                'Sabbatical', '#a5c6be',
                 /* other */ '#ccc'
             ],
 
@@ -379,7 +380,7 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
 
                 })
 
-                var popDiv = `<div class="pop">${popMultiple.join('')}</div>`
+                var popDiv = `<h4 class="loc">${projLoc}</h4><div class="pop">${popMultiple.join('')}</div>`
 
 
 
@@ -405,17 +406,146 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
 
         // console.log(features);
         console.log(f.features);
-       if (f.features[0].properties.loc != "Anchorage, AK") 
+    //    if (f.features[0].properties.loc != "Anchorage, AK") 
 
-        {
-          popup.remove()
-          console.log("it aint' anchorage");
-        }  
+    //     {
+    //       popup.remove()
+    //       console.log("it aint' anchorage");
+    //     }  
 
-    else console.log("it's anc");
+    // else console.log("it's anc");
 
     // popup.remove();
+
+popup.remove();
+
     });
+
+
+
+
+
+//////######new click:
+
+
+
+map.on('click', 'ras2', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+
+        ///////getting from teh JSON
+
+
+
+        var projLoc= e.features[0].properties['loc'];
+
+
+
+        var featProgram = e.features[0].properties.Program;
+
+        var currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
+
+
+
+console.log("CLEICK FESTURE");
+console.log(e.features);
+
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        // var des = e.features[0].properties['Web Title'];
+        // var name = e.features[0].properties['Organization Name'];
+        // var award = e.features[0].properties['Award Amount'];
+
+        var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc}<br />
+          <h3>Project Location: </h3>${projLoc}  <br />             
+          <h3>Award: </h3>${currentData[0].AwardAmount} 
+                <br />
+                <h3>Description: </h3>${projLoc}</div>`
+
+
+           var popMultiple = currentData.map(function (el) {
+
+return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
+ <p class="indent">${el.WebTitle}</p>
+         <br />`
+
+                })
+
+                var popDiv = `<div class="pop">${popMultiple.join('')}</div>`
+
+
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(coordinates)
+            .setHTML(popDiv)
+            .addTo(map);
+    });
+
+
+
+    map.on('mouseleave', 'ras2', function(e) {
+        map.getCanvas().style.cursor = '';
+            // var features = map.queryRenderedFeatures(e.point);
+
+        // console.log(features);
+        console.log(e.features);
+    //    if (f.features[0].properties.loc != "Anchorage, AK") 
+
+    //     {
+    //       popup.remove()
+    //       console.log("it aint' anchorage");
+    //     }  
+
+    // else console.log("it's anc");
+
+    // popup.remove();
+
+popup.remove();
+
+    });
+
+
+
+
+
+
+
+////#########end new click
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //###########click test
 

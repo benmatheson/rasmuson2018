@@ -1,0 +1,26 @@
+{
+"type": "FeatureCollection",
+"name": "city_labels",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "Community Name": "Anchorage", "lat": 61.2163, "lon": -149.8948 }, "geometry": { "type": "Point", "coordinates": [ 219655.912318238231819, 1255118.780564485117793 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Barrow (Utqiagvik)", "lat": 71.2891, "lon": -156.7685 }, "geometry": { "type": "Point", "coordinates": [ -101617.456462098285556, 2367833.86575729586184 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Bethel", "lat": 60.8021, "lon": -161.7706 }, "geometry": { "type": "Point", "coordinates": [ -420504.043071914813481, 1226629.731293136253953 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Circle", "lat": 65.8267, "lon": -144.0668 }, "geometry": { "type": "Point", "coordinates": [ 453134.138824910391122, 1797108.105113580822945 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Eagle River", "lat": 61.3151, "lon": -149.5465 }, "geometry": { "type": "Point", "coordinates": [ 237524.992867036169628, 1267345.019431275781244 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Eklutna", "lat": 61.461, "lon": -149.362 }, "geometry": { "type": "Point", "coordinates": [ 246210.839712862187298, 1284296.616210864856839 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Fairbanks", "lat": 64.8357, "lon": -147.7336 }, "geometry": { "type": "Point", "coordinates": [ 296908.40806576248724, 1666752.094835825264454 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Gustavus", "lat": 58.4189, "lon": -135.7104 }, "geometry": { "type": "Point", "coordinates": [ 1051969.217627558391541, 1081306.464951422763988 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Homer", "lat": 59.6434, "lon": -151.5555 }, "geometry": { "type": "Point", "coordinates": [ 137324.743179728568066, 1074940.786560657899827 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Juneau", "lat": 58.3021, "lon": -134.4106 }, "geometry": { "type": "Point", "coordinates": [ 1128418.691113365115598, 1090119.418103978503495 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Kenai", "lat": 60.5537, "lon": -151.2546 }, "geometry": { "type": "Point", "coordinates": [ 150011.955587124655722, 1177318.883383672917262 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Knik", "lat": 61.4578, "lon": -149.7289 }, "geometry": { "type": "Point", "coordinates": [ 226784.765129651583266, 1282632.949075468350202 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Kotzebue", "lat": 66.8959, "lon": -162.5869 }, "geometry": { "type": "Point", "coordinates": [ -376760.339934962568805, 1906424.599041826790199 ] } },
+{ "type": "Feature", "properties": { "Community Name": "McKinley Park", "lat": 63.7323, "lon": -148.9169 }, "geometry": { "type": "Point", "coordinates": [ 250381.397437746403739, 1539171.554946917574853 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Nome", "lat": 64.4976, "lon": -165.3841 }, "geometry": { "type": "Point", "coordinates": [ -543983.338663210393861, 1661757.447109572356567 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Palmer", "lat": 61.5934, "lon": -149.1093 }, "geometry": { "type": "Point", "coordinates": [ 258512.444195170828607, 1300026.38009703438729 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Portage", "lat": 60.8321, "lon": -148.9852 }, "geometry": { "type": "Point", "coordinates": [ 271483.29462948179571, 1215610.89804630423896 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Sterling", "lat": 60.537, "lon": -150.797 }, "geometry": { "type": "Point", "coordinates": [ 175087.815862040646607, 1176572.959213039139286 ] } },
+{ "type": "Feature", "properties": { "Community Name": "Wasilla", "lat": 61.5845, "lon": -149.4339 }, "geometry": { "type": "Point", "coordinates": [ 241451.139631823956734, 1297811.691704409662634 ] } }
+]
+}
