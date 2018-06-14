@@ -7,7 +7,7 @@ var map = new mapboxgl.Map({
   container: 'map1',
   // style: 'mapbox://styles/mapbox/light-v9',
   style: 'mapbox://styles/benmatheson/cjh2yaf301jjm2sru7r1uz7n7',
-  center: [-1, 12],
+  center: [-1,12],
   zoom: 4.2,
   "transition": {
   "duration": 800,
@@ -110,7 +110,7 @@ map.addSource('rasShape', {
                 'Anchorage, AK', 18,
                 'Juneau, AK', 9,
                 'Fairbanks, AK', 14,
-                /* other */ 7
+                /* other */ 6
             ],
 
 
@@ -168,6 +168,9 @@ map.addLayer({
             "text-font": ["Open Sans Bold","Arial Unicode MS Regular"],
             // "text-font": ["Fira Sans Regular"],
             "text-size": 12,
+            "text-anchor": "bottom-right",
+            "text-offset": [3.5,.8]
+          // "text-offset-distance": "10px"
                   // "text-allow-overlap": true,
                     // "text-ignore-placement": true
 
