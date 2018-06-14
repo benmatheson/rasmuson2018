@@ -108,9 +108,9 @@ map.addSource('rasShape', {
                 'match',
                 ['get', 'loc'],
                 'Anchorage, AK', 18,
-                'Juneau, AK', 8,
+                'Juneau, AK', 9,
                 'Fairbanks, AK', 14,
-                /* other */ 5
+                /* other */ 7
             ],
 
 
@@ -168,6 +168,9 @@ map.addLayer({
             "text-font": ["Open Sans Bold","Arial Unicode MS Regular"],
             // "text-font": ["Fira Sans Regular"],
             "text-size": 12,
+                  // "text-allow-overlap": true,
+                    // "text-ignore-placement": true
+
             // "text-weight": "bold"
         },
 
@@ -201,7 +204,9 @@ map.addLayer({
 
 map.scrollZoom.disable();
 
+map.addControl(new mapboxgl.NavigationControl());
 
+// map.addControl(new mapboxgl.Navigation({position: 'top-left'}));
 
 
 
@@ -332,13 +337,12 @@ console.log(currentProgram);
 //     });
 
 
-map.addControl(new mapboxgl.NavigationControl());
 
 
 
 //##########click test
 
-map.on('mouseover', 'ras2', function(e) {
+map.on('mouseenter', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -357,7 +361,7 @@ map.on('mouseover', 'ras2', function(e) {
 
 
 
-console.log("feet");
+console.log("moutOVER features");
 console.log(e.features);
 
         var coordinates = e.features[0].geometry.coordinates.slice();
@@ -365,8 +369,8 @@ console.log(e.features);
         // var name = e.features[0].properties['Organization Name'];
         // var award = e.features[0].properties['Award Amount'];
 
-        var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc}<br />
-          <h3>Project Location: </h3>${projLoc}  <br />             
+        var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
+          <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br />             
           <h3>Award: </h3>${currentData[0].AwardAmount} 
                 <br />
                 <h3>Description: </h3>${projLoc}</div>`
@@ -380,7 +384,7 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
 
                 })
 
-                var popDiv = `<h4 class="loc">${projLoc}</h4><div class="pop">${popMultiple.join('')}</div>`
+                var popDiv = `<h4 class="loc">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
 
 
 
@@ -391,35 +395,55 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
+
+
+
+
+
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates)
             .setHTML(popDiv)
             .addTo(map);
-    });
 
 
+function rv() {
 
-    map.on('mouseleave', 'ras2', function(f) {
-        map.getCanvas().style.cursor = '';
-            // var features = map.queryRenderedFeatures(e.point);
+if (e.features[0].properties.loc != "Anchorage, AK")
+{
+  popup.remove();
+}
 
-        // console.log(features);
-        console.log(f.features);
-    //    if (f.features[0].properties.loc != "Anchorage, AK") 
+}
 
-    //     {
-    //       popup.remove()
-    //       console.log("it aint' anchorage");
-    //     }  
-
-    // else console.log("it's anc");
-
-    // popup.remove();
-
-popup.remove();
+setTimeout(rv, 4000)
 
     });
+
+
+
+//     map.on('mouseleave', 'ras2', function(f) {
+//         map.getCanvas().style.cursor = '';
+//             // var features = map.queryRenderedFeatures(e.point);
+
+//         console.log('mouseLEAVE');
+//         console.log(f.features);
+//         console.log(f.target);
+//         console.log(f);
+//     //    if (f.features[0].properties.loc != "Anchorage, AK") 
+
+//     //     {
+//     //       popup.remove()
+//     //       console.log("it aint' anchorage");
+//     //     }  
+
+//     // else console.log("it's anc");
+
+//     // popup.remove();
+
+// popup.remove();
+
+//     });
 
 
 
@@ -487,30 +511,32 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
         popup.setLngLat(coordinates)
             .setHTML(popDiv)
             .addTo(map);
+
+
+            function rv() {
+
+if (e.features[0].properties.loc != "Anchorage, AK")
+{
+  popup.remove();
+}
+
+}
+
+setTimeout(rv, 4000)
+
+    
     });
 
 
 
-    map.on('mouseleave', 'ras2', function(e) {
-        map.getCanvas().style.cursor = '';
-            // var features = map.queryRenderedFeatures(e.point);
+    // map.on('mouseleave', 'ras2', function(e) {
+    //     map.getCanvas().style.cursor = '';
+    //         // var features = map.queryRenderedFeatures(e.point);
 
-        // console.log(features);
-        console.log(e.features);
-    //    if (f.features[0].properties.loc != "Anchorage, AK") 
+    //     // console.log(features);
 
-    //     {
-    //       popup.remove()
-    //       console.log("it aint' anchorage");
-    //     }  
 
-    // else console.log("it's anc");
-
-    // popup.remove();
-
-popup.remove();
-
-    });
+    // });
 
 
 
