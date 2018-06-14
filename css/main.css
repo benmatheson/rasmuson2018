@@ -441,7 +441,7 @@ position: absolute;
 display: flex;
 justify-content: space-between;
 flex-direction: row;
-top: 90%;
+top: 84%;
 left: 20px;
 width:90%;
 
@@ -466,7 +466,9 @@ margin: 3px;
 border: none;
 border-radius: 2px;
 /*font-weight: bold;*/
-font-size: .4rem;
+height: 80px;
+font-size: .8rem;
+line-height: 97%;
 
 /*color: pink;*/
     font-family: "Fira Sans", sans-serif;
@@ -486,6 +488,35 @@ font-size: .4rem;
     display: block;
     float: center;
     /*margin-right: 3px;*/
+}
+
+
+
+.mapboxgl-popup {
+/*animation: popTrans, 2s, linear, .5s;*/
+/*background-color: pink;*/
+/*width: 900px;*/
+font-size: 9px;
+line-height: 100%;
+max-height: 200px;
+width: 200px;
+animation: fade .5s;
+
+/*background-color: rgba(255,255,255,.08);*/
+
+/*overflow-x: scroll ! important;*/
+
+}
+
+.mapboxgl-popup-content {
+/*overflow-y: scroll ! important;
+overflow-x: scroll ! important;*/
+overflow-y: auto;
+        border-radius: 50px;
+line-height: 100%;
+
+/*background-color: rgba(255,255,255,.1);*/
+
 }
 
 
