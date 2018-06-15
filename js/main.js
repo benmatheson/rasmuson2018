@@ -71,6 +71,8 @@ map.addSource('rasShape', {
         "type": "fill",
       "source": "rasShape",
 
+      "interactive": "false",
+
 
     'paint': {
 
@@ -89,6 +91,8 @@ map.addSource('rasShape', {
 
 
 
+
+////#### the circles 
 
 
   map.addLayer({
@@ -159,13 +163,14 @@ map.addLayer({
         "id": "cities1",
         "type": "symbol",
       "source": "cities",
+      "interactive": "false",
 
 
         "layout": {
             "text-field": "{Community Name}",
                         "text-offset": [1, 0.5],
 
-            "text-font": ["Open Sans Bold","Arial Unicode MS Regular"],
+            "text-font": ["Arial Unicode MS Bold", "Open Sans Bold"],
             // "text-font": ["Fira Sans Regular"],
             "text-size": 12,
             "text-anchor": "bottom-right",
@@ -206,6 +211,19 @@ map.addLayer({
  // ["in", "class", "street_major", "street_minor", "street_limited"]
 
 map.scrollZoom.disable();
+
+
+// disable map rotation using right click + drag
+map.dragRotate.disable();
+
+// disable map rotation using touch rotation gesture
+map.touchZoomRotate.disableRotation();
+
+
+
+
+
+
 
 map.addControl(new mapboxgl.NavigationControl());
 
