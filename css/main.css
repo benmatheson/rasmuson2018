@@ -149,7 +149,12 @@ transform: translateX(120%);
 }
 
 
+.popUpLine {
 
+height: 20px;
+width: 100%;
+
+}
 
 .dotBig {
     height: 28px;
@@ -201,8 +206,13 @@ h4{
 h4.loc {
 
 text-align: center;
-font-style: italic;
-font-size: .7rem;
+/*font-style: italic;*/
+font-size: .8rem;
+border-radius: 2px;
+font-weight: bold;
+padding: 6px 0px 6px 0px;
+color: white;
+
 /*margin-top: 0px;*/
 
 }

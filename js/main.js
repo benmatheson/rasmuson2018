@@ -108,17 +108,20 @@ map.addSource('rasShape', {
             //     'stops': [[12, 7], [22, 20]]
             // },
 
-'circle-radius': [
-                'match',
-                ['get', 'loc'],
-                'Anchorage, AK', 18,
-                'Juneau, AK', 9,
-                'Fairbanks, AK', 14,
-                /* other */ 6
-            ],
+'circle-radius': 6,
 
 
-//##CLUSTERING//
+
+
+
+// [
+//                 'match',
+//                 ['get', 'loc'],
+//                 'Anchorage, AK', 18,
+//                 'Juneau, AK', 9,
+//                 'Fairbanks, AK', 14,
+//                 /* other */ 6
+//             ],//##CLUSTERING//
 
 // "circle-radius": [
 //                 "step",
@@ -131,21 +134,24 @@ map.addSource('rasShape', {
 //             ],
 
 
+            'circle-color': "rgba(0,0,0,.01)",
+            'circle-stroke-width': 1.4,
+            'circle-stroke-color': "rgba(0,0,0,.5)",
 
-
+            
 
             // color circles by ethnicity, using a match expression
             // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': [
-                'match',
-                ['get', 'Program'],
-                'Tier 1', '#4789c8 ',
-                'Tier 2', '#72cac3',
-                'Individual Artist Award', '#e09641',
-                'Foundation Initiated', '#a5c6be',
-                'Sabbatical', '#a5c6be',
-                /* other */ '#ccc'
-            ],
+            // 'circle-color': [
+            //     'match',
+            //     ['get', 'Program'],
+            //     'Tier 1', '#4789c8 ',
+            //     'Tier 2', '#72cac3',
+            //     'Individual Artist Award', '#e09641',
+            //     'Foundation Initiated', '#a5c6be',
+            //     'Sabbatical', '#a5c6be',
+            //     /* other */ 'green'
+            // ],
 
             // 'circle-stroke-color': "darkblue",
             // 'circle-stroke-width': 1,
@@ -168,7 +174,7 @@ map.addLayer({
 
         "layout": {
             "text-field": "{Community Name}",
-                        "text-offset": [1, 0.5],
+                        "text-offset": [1, 5.5],
 
             "text-font": ["Arial Unicode MS Bold", "Open Sans Bold"],
             // "text-font": ["Fira Sans Regular"],
@@ -192,11 +198,11 @@ map.addLayer({
             // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
                     "text-halo-color": "#ffffff",
                     "text-halo-width": .9,
-                    "text-halo-blur": .4
+                    "text-halo-blur": .4,
 
 
-            // 'circle-stroke-color': "darkblue",
-            // 'circle-stroke-width': 1,
+            // // 'circle-stroke-color': "darkblue",
+            // 'circle-stroke-width': 0,
             // 'circle-color': 'rgba(0,0,0,0)'
         }
 
@@ -213,11 +219,11 @@ map.addLayer({
 map.scrollZoom.disable();
 
 
-// disable map rotation using right click + drag
-map.dragRotate.disable();
+// // disable map rotation using right click + drag
+// map.dragRotate.disable();
 
-// disable map rotation using touch rotation gesture
-map.touchZoomRotate.disableRotation();
+// // disable map rotation using touch rotation gesture
+// map.touchZoomRotate.disableRotation();
 
 
 
@@ -235,11 +241,18 @@ map.addControl(new mapboxgl.NavigationControl());
 })
 
 
-var currentProgram;
+var currentProgram = 'allPrograms';
 
 function allGrants () { 
 
 map.setFilter('ras2', ['in', 'Program', 'Tier 1', 'Tier 2', 'Sabbatical', "Individual Artist Award"]);
+
+currentProgram = 'allPrograms';
+console.log("CURR PROG");
+console.log(currentProgram);
+
+map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.01)");
+map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
 
 
 }
@@ -248,15 +261,34 @@ function t1 () {
 
 map.setFilter('ras2', ['in', 'Program', 'Tier 1']);
 
-var currentProgram =  "Tier 1";
-console.log(currentProgram)
+currentProgram =  "Tier 1";
+
+
+
+console.log("CURR PROG");
+console.log(currentProgram);
+
+
+map.setPaintProperty('ras2',  'circle-stroke-color',[
+                'match',
+                ['get', 'Program'],
+                'Tier 1', '#4789c8 ',
+                'Tier 2', '#72cac3',
+                'Individual Artist Award', '#e09641',
+                'Foundation Initiated', '#a5c6be',
+                'Sabbatical', '#a5c6be',
+                /* other */ 'green'
+            ])
+
 }
 
 
 function t2() {
 map.setFilter('ras2', ['in', 'Program', 'Tier 2']);
 
-var currentProgram =  "Tier 2";
+currentProgram =  "Tier 2";
+console.log("CURR PROG");
+console.log(currentProgram);
 
 
 }
@@ -265,6 +297,9 @@ var currentProgram =  "Tier 2";
 function iaa() {
 map.setFilter('ras2', ['in', 'Program', 'Individual Artist Award']);
 
+currentProgram =  "Individual Artist Award";
+console.log("CURR PROG");
+console.log(currentProgram);
 
 
 }
@@ -272,7 +307,10 @@ map.setFilter('ras2', ['in', 'Program', 'Individual Artist Award']);
 
 function sabbatical() {
 map.setFilter('ras2', ['in', 'Program', 'Sabbatical']);
+currentProgram =  "Sabbatical";
 
+console.log("CURR PROG");
+console.log(currentProgram);
 
 
 }
@@ -361,7 +399,7 @@ console.log(currentProgram);
 
 
 
-//##########click test
+//#########mouseover
 
 map.on('mouseenter', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
@@ -377,10 +415,63 @@ map.on('mouseenter', 'ras2', function(e) {
 
 
         var featProgram = e.features[0].properties.Program;
+        var currentData;
 
-        var currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
+        console.log("currentPogrg")
+        console.log(currentProgram)
+
+        if (currentProgram == "allPrograms")
+            {currentData = ras_ak.filter(d=>d.loc == projLoc)}
+      
+              else
+
+         {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)} 
 
 
+        /////this is where the ALL grants is being messed up. 
+
+// switch(expression) {
+//     case n:
+//         code block
+//         break;
+//     case n:
+//         code block
+//         break;
+//     default:
+//         code block
+// }
+
+
+var bannerColor;
+
+switch (currentProgram) {
+
+  case "Tier 1":
+  bannerColor = "#4789c8";
+  break;
+
+  case "Tier 2":
+  bannerColor = "#72cac3";
+  break;
+
+  case "Sabbatical":
+  bannerColor="#a5c6be";
+  break;
+
+    case "Individual Artist Award":
+  bannerColor="#e09641";
+  break;
+
+default: 
+        bannerColor="#333333";
+
+
+
+}
+
+
+console.log("the color");
+console.log(bannerColor);
 
 console.log("moutOVER features");
 console.log(e.features);
@@ -390,7 +481,11 @@ console.log(e.features);
         // var name = e.features[0].properties['Organization Name'];
         // var award = e.features[0].properties['Award Amount'];
 
-        var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
+
+
+
+
+        var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
           <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br />             
           <h3>Award: </h3>${currentData[0].AwardAmount} 
                 <br />
@@ -405,10 +500,10 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
 
                 })
 
-                var popDiv = `<h4 class="loc">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
+                var popDiv = `<h4 class="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
 
 
-
+// <div style="background-color:${bannerColor}" class="popUpLine"></div>
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears
         // over the copy being pointed to.
