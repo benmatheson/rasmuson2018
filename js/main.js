@@ -108,7 +108,7 @@ map.addSource('rasShape', {
             //     'stops': [[12, 7], [22, 20]]
             // },
 
-'circle-radius': 6,
+'circle-radius': 8,
 
 
 
@@ -134,7 +134,7 @@ map.addSource('rasShape', {
 //             ],
 
 
-            'circle-color': "rgba(0,0,0,.01)",
+            'circle-color': "rgba(0,0,0,.99)",
             'circle-stroke-width': 1.4,
             'circle-stroke-color': "rgba(0,0,0,.5)",
 
@@ -251,8 +251,11 @@ currentProgram = 'allPrograms';
 console.log("CURR PROG");
 console.log(currentProgram);
 
-map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.01)");
-map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
+map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.99)");
+// map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
+
+
+
 
 
 }
@@ -269,7 +272,7 @@ console.log("CURR PROG");
 console.log(currentProgram);
 
 
-map.setPaintProperty('ras2',  'circle-stroke-color',[
+map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
                 'Tier 1', '#4789c8 ',
@@ -289,7 +292,16 @@ map.setFilter('ras2', ['in', 'Program', 'Tier 2']);
 currentProgram =  "Tier 2";
 console.log("CURR PROG");
 console.log(currentProgram);
-
+map.setPaintProperty('ras2',  'circle-color',[
+                'match',
+                ['get', 'Program'],
+                'Tier 1', '#4789c8 ',
+                'Tier 2', '#72cac3',
+                'Individual Artist Award', '#e09641',
+                'Foundation Initiated', '#a5c6be',
+                'Sabbatical', '#a5c6be',
+                /* other */ 'green'
+            ])
 
 }
 
@@ -301,7 +313,16 @@ currentProgram =  "Individual Artist Award";
 console.log("CURR PROG");
 console.log(currentProgram);
 
-
+map.setPaintProperty('ras2',  'circle-color',[
+                'match',
+                ['get', 'Program'],
+                'Tier 1', '#4789c8 ',
+                'Tier 2', '#72cac3',
+                'Individual Artist Award', '#e09641',
+                'Foundation Initiated', '#a5c6be',
+                'Sabbatical', '#a5c6be',
+                /* other */ 'green'
+            ])
 }
 
 
@@ -311,7 +332,16 @@ currentProgram =  "Sabbatical";
 
 console.log("CURR PROG");
 console.log(currentProgram);
-
+map.setPaintProperty('ras2',  'circle-color',[
+                'match',
+                ['get', 'Program'],
+                'Tier 1', '#4789c8 ',
+                'Tier 2', '#72cac3',
+                'Individual Artist Award', '#e09641',
+                'Foundation Initiated', '#a5c6be',
+                'Sabbatical', '#a5c6be',
+                /* other */ 'green'
+            ])
 
 }
 
