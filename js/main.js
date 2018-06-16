@@ -668,7 +668,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 }
 
-setTimeout(rv, 4000)
+setTimeout(rv, 500)
 
     
     });
