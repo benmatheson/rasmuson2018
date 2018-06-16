@@ -108,9 +108,12 @@ map.addSource('rasShape', {
             //     'stops': [[12, 7], [22, 20]]
             // },
 
-'circle-radius': 8,
+// 'circle-radius': 8,
 
-
+  'circle-radius': {
+                // 'base': 20,
+                'stops': [[3.9, 8], [22, 19]]
+            },
 
 
 
