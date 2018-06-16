@@ -565,7 +565,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 }
 
-setTimeout(rv, 4000)
+// setTimeout(rv, 4000)
 
     });
 
@@ -671,7 +671,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 }
 
-setTimeout(rv, 500)
+// setTimeout(rv, 500)
 
     
     });
@@ -1086,6 +1086,6 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 }
 
-setTimeout(rv, 10)
+// setTimeout(rv, 10)
 
     });
