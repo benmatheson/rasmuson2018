@@ -126,7 +126,7 @@ textarea {
         top: 0;
         /*bottom: 0;*/
         width: 100%;
-        height: 90vh;
+        height: 100vh;
         margin:auto;
         margin-bottom: 2%;
       }
@@ -281,7 +281,7 @@ justify-content: space-between;
 flex-direction: column;
 top: 20px;
 left: 74%;
-width: 10%;
+width: 16%;
 
 z-index: 99;
 
@@ -494,8 +494,8 @@ display: flex;
 justify-content: space-between;
 flex-direction: row;
 top: 84%;
-left: 20px;
-width:90%;
+left: 4px;
+width:97%;
 
 z-index: 95;
 
@@ -519,7 +519,7 @@ border: none;
 border-radius: 2px;
 /*font-weight: bold;*/
 height: 80px;
-font-size: .8rem;
+font-size: .7rem;
 line-height: 97%;
 
 /*color: pink;*/
