@@ -131,9 +131,15 @@ textarea {
         height: 100vh;
         margin:auto;
         margin-bottom: 2%;
-            touch-action:none;
+        touch-action:none;
 
       }
+
+#map {
+        touch-action:none;
+
+    
+}
 
 
 
