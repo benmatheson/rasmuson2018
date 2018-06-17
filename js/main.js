@@ -609,7 +609,7 @@ map.on('mousedown', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
-    e.originalEvent.preventDefault(true);
+    // e.originalEvent.preventDefault(true);
 
         ///////getting from teh JSON
 
@@ -965,7 +965,7 @@ map.on('touchstart', 'ras2', function(e) {
 
 
         ///////getting from teh JSON
-    e.originalEvent.preventDefault(true);
+    // e.originalEvent.preventDefault(true);
 
 
 
