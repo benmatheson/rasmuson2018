@@ -111,7 +111,7 @@ map.addSource('rasShape', {
 // 'circle-radius': 8,
 
   'circle-radius': {
-                'base': 8,
+                'base': 7,
                 'stops': [[5, 9], [22, 19]]
             },
 
@@ -137,9 +137,9 @@ map.addSource('rasShape', {
 //             ],
 
 
-            'circle-color': "rgba(0,0,0,.99)",
+            'circle-color': "rgba(0,0,0,.55)",
             'circle-stroke-width': 1.4,
-            'circle-stroke-color': "rgba(0,0,0,.5)",
+            'circle-stroke-color': "rgba(0,0,0,.00)",
 
             
 
@@ -254,7 +254,7 @@ currentProgram = 'allPrograms';
 console.log("CURR PROG");
 console.log(currentProgram);
 
-map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.99)");
+map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.5)");
 // map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
 
 
