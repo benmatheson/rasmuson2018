@@ -226,7 +226,7 @@ map.addLayer({
 // map.dragRotate.disable();
 
 // disable map rotation using touch rotation gesture
-map.touchZoomRotate.disableRotation();
+// map.touchZoomRotate.disableRotation();
 
 
 
@@ -604,6 +604,7 @@ map.touchZoomRotate.enable();
 map.dragPan.enable();
 console.log('DRAGGIN?')
 console.log(map.dragPan.isEnabled())
+console.log(map.touchZoomRotate.isEnabled())
 
 map.on('mousedown', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
