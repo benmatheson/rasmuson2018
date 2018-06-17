@@ -606,6 +606,7 @@ map.on('click', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
+    e.originalEvent.preventDefault(true);
 
         ///////getting from teh JSON
 
