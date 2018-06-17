@@ -519,11 +519,8 @@ console.log(e.features);
 
 
         var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
-          <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br />             
-          <h3>Award: </h3>${currentData[0].AwardAmount} 
-                <br />
-                <h3>Description: </h3>${projLoc}</div>`
-
+          <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br /> `            
+      
 
            var popMultiple = currentData.map(function (el) {
 
