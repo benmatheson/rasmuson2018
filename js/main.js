@@ -611,7 +611,8 @@ map.on('mousedown', 'ras2', function(e) {
         map.getCanvas().style.cursor = 'pointer';
 
     e.originalEvent.preventDefault(true);
-    
+    e.preventDefault(true);
+
 
         ///////getting from teh JSON
 
@@ -968,6 +969,7 @@ map.on('touchstart', 'ras2', function(e) {
 
         ///////getting from teh JSON
     e.originalEvent.preventDefault(true);
+    e.preventDefault(true);
 
 
 
