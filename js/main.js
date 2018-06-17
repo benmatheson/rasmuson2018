@@ -219,7 +219,7 @@ map.addLayer({
 
  // ["in", "class", "street_major", "street_minor", "street_limited"]
 
-map.scrollZoom.disable();
+// map.scrollZoom.disable();
 
 
 // // disable map rotation using right click + drag
