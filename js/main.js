@@ -601,8 +601,9 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 //////######new click:
 
 map.touchZoomRotate.enable();
-map.DragPanHandler.enable();
-
+map.dragPan.enable();
+console.log('DRAGGIN?')
+console.log(map.dragPan.isEnabled())
 
 map.on('mousedown', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
