@@ -600,6 +600,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 //////######new click:
 
+map.touchZoomRotate.enable();
 
 
 map.on('mousedown', 'ras2', function(e) {
