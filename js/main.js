@@ -961,6 +961,7 @@ map.on('touchstart', 'ras2', function(e) {
 
 
         ///////getting from teh JSON
+    e.originalEvent.preventDefault(true);
 
 
 
