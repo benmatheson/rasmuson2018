@@ -602,7 +602,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 
 
-map.on('click', 'ras2', function(e) {
+map.on('mousedown', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 

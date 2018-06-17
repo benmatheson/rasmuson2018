@@ -527,6 +527,7 @@ line-height: 97%;
 
 /*color: pink;*/
     font-family: sans-serif;
+-webkit-font-smoothing: none
 
 
 }
