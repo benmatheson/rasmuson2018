@@ -63,8 +63,8 @@ map.on('load', function() {
 
 map.addSource('cities', {
   type:'geojson',
-  data: cities_fake
-
+  data: cities_fake,
+   "maxzoom": 10
 
 })
 
@@ -73,6 +73,9 @@ map.addSource('ras1', {
   type: 'geojson',
   // data: 'https://rawgit.com/benmatheson/2011_test/master/ras_ak_red.geojson'
   data: red_fake,
+
+     "maxzoom": 10
+
      // cluster: true,
      //    clusterMaxZoom: 14, // Max zoom to cluster points on
      //    clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
@@ -81,7 +84,8 @@ map.addSource('ras1', {
 map.addSource('rasShape', {
   type: 'geojson',
   // data: 'https://rawgit.com/benmatheson/2011_test/master/ras_ak_red.geojson'
-  data: ak_simple_fake
+  data: ak_simple_fake,
+   "maxzoom": 10
 });
 
 
@@ -122,6 +126,7 @@ map.addSource('rasShape', {
         "id": "ras2",
         "type": "circle",
    		"source": "ras1",
+      "minzoom": 3,
 
 
 		'paint': {
