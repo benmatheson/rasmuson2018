@@ -30,11 +30,11 @@ var map = new mapboxgl.Map({
   // style: 'mapbox://styles/mapbox/light-v9',
   style: 'mapbox://styles/benmatheson/cjh2yaf301jjm2sru7r1uz7n7',
   center: [-1,12],
-  zoom: 4.2,
-  "transition": {
-  "duration": 800,
-  "delay": 200
-}
+  zoom: 4.2
+//   "transition": {
+//   "duration": 800
+//   // "delay": 200
+// }
 });
 
 var red = './data/ras_ak_red.geojson';
@@ -646,7 +646,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 }
 
-setTimeout(rv, 4100)
+// setTimeout(rv, 4100)
 
     });
 
