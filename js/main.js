@@ -3,24 +3,24 @@ console.log(ras_ak);
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'
 
-// var outerDiv = document.getElementById("map1");
-// console.log(outerDiv)
+var outerDiv = document.getElementById("map1");
+console.log(outerDiv)
 
-// outerDiv.ontouchmove = touchmo;
+outerDiv.ontouchmove = touchmo;
 
-// function touchmo (e){
+function touchmo (e){
 
-// e.preventDefault();
-// console.log("PREVENTIN#@")
-// }
+e.preventDefault();
+console.log("PREVENTIN#@")
+}
 
-// outerDiv.onmousedown=modo;
+outerDiv.onmousedown=modo;
 
-// function modo (e){
+function modo (e){
 
-// e.preventDefault();
-// console.log("PREVENTIN#@");
-// }
+e.preventDefault();
+console.log("PREVENTIN#@");
+}
 
 
 
