@@ -44,7 +44,8 @@ var red = './data/ras_ak_red.geojson';
 //replaces teh old one.
 
 // var red_fake = './data/citiesAll_fake.geojson';
-var red_fake = './data/citiesdot_fake.geojson';
+// var red_fake = './data/citiesdot_fake.geojson';
+var red_fake = './data/citiesDot_6_18_fake.geojson';
 
 
 // var ak_simple_fake = './data/alaska_simplified_fake.geojson';
