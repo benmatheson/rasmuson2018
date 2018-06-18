@@ -370,6 +370,14 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 }
 
+
+function statewide () {
+
+console.log("statewide function");
+
+
+}
+
 console.log("CURR PROG");
 console.log(currentProgram);
 
