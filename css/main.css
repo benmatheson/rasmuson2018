@@ -512,6 +512,13 @@ margin: 2%;
 padding: 2%;
 }
 
+.statewide h4 {
+
+margin-top: 0px;
+
+}
+
+
 .vis {
 
 visibility: visible;
@@ -626,6 +633,12 @@ overflow-y: auto;
 line-height: 100%;
 
 /*background-color: rgba(255,255,255,.1);*/
+
+}
+
+.mapboxgl-popup-content h4{
+font-size: 12px;
+
 
 }
 

@@ -11,7 +11,7 @@ outerDiv.ontouchmove = touchmo;
 function touchmo (e){
 
 e.preventDefault();
-console.log("PREVENTIN#@")
+console.log("PREVENTINTOUGHMO")
 }
 
 outerDiv.onmousedown=modo;
@@ -19,7 +19,7 @@ outerDiv.onmousedown=modo;
 function modo (e){
 
 e.preventDefault();
-console.log("PREVENTIN#@");
+console.log("PREVENTINMODO");
 }
 
 
@@ -646,7 +646,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 }
 
-// setTimeout(rv, 4000)
+setTimeout(rv, 4100)
 
     });
 
@@ -751,7 +751,7 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
             .addTo(map);
 
 
-            function rv() {
+function rv() {
 
 if (e.features[0].properties.loc != "Anchorage, AK")
 {
@@ -760,7 +760,7 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 }
 
-// setTimeout(rv, 500)
+// setTimeout(rv, 2000)
 
     
     });
