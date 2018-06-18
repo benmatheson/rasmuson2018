@@ -3,6 +3,28 @@ console.log(ras_ak);
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'
 
+var outerDiv = document.getElementById("map1");
+console.log(outerDiv)
+
+outerDiv.ontouchmove = touchmo;
+
+function touchmo (e){
+
+e.preventDefault();
+console.log("PREVENTIN#@")
+}
+
+outerDiv.onmousedown=modo;
+
+function modo (e){
+
+e.preventDefault();
+console.log("PREVENTIN#@");
+}
+
+
+
+
 var map = new mapboxgl.Map({
   container: 'map1',
   // style: 'mapbox://styles/mapbox/light-v9',
@@ -597,11 +619,12 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 //////######new click:
 
-map.touchZoomRotate.enable();
-map.dragPan.enable();
+// map.touchZoomRotate.enable();
+// map.dragPan.enable();
 console.log('DRAGGIN?')
 console.log(map.dragPan.isEnabled())
 console.log(map.touchZoomRotate.isEnabled())
+
 
 map.on('mousedown', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
@@ -964,6 +987,8 @@ map.on('touchstart', 'ras2', function(e) {
         map.getCanvas().style.cursor = 'pointer';
 
 
+console.log("DEFAULTS")
+console.log(map.touchZoomRotate.defaultPrevented)
         ///////getting from teh JSON
     // e.originalEvent.preventDefault(true);
     // e.preventDefault(true);
