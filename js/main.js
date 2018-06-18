@@ -158,25 +158,27 @@ map.addSource('rasShape', {
 //                 35
 //             ],
 
+//** reinstate circle color //
 
-            'circle-color': "rgba(0,0,0,.55)",
-            'circle-stroke-width': 1.4,
-            'circle-stroke-color': "rgba(0,0,0,.00)",
+
+            // 'circle-color': "rgba(0,0,0,.55)",
+            // 'circle-stroke-width': 1.4,
+            // 'circle-stroke-color': "rgba(0,0,0,.00)",
 
             
 
             // color circles by ethnicity, using a match expression
             // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            // 'circle-color': [
-            //     'match',
-            //     ['get', 'Program'],
-            //     'Tier 1', '#4789c8 ',
-            //     'Tier 2', '#72cac3',
-            //     'Individual Artist Award', '#e09641',
-            //     'Foundation Initiated', '#a5c6be',
-            //     'Sabbatical', '#a5c6be',
-            //     /* other */ 'green'
-            // ],
+            'circle-color': [
+                'match',
+                ['get', 'Program'],
+                'Tier 1', '#4789c8 ',
+                'Tier 2', '#72cac3',
+                'Individual Artist Award', '#e09641',
+                'Foundation Initiated', '#a5c6be',
+                'Sabbatical', '#a5c6be',
+                /* other */ 'green'
+            ],
 
             // 'circle-stroke-color': "darkblue",
             // 'circle-stroke-width': 1,
@@ -276,10 +278,19 @@ currentProgram = 'allPrograms';
 console.log("CURR PROG");
 console.log(currentProgram);
 
-map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.5)");
+// map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.5)");
 // map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
 
-
+map.setPaintProperty('ras2',  'circle-color',[
+                'match',
+                ['get', 'Program'],
+                'Tier 1', '#4789c8 ',
+                'Tier 2', '#72cac3',
+                'Individual Artist Award', '#e09641',
+                'Foundation Initiated', '#a5c6be',
+                'Sabbatical', '#a5c6be',
+                /* other */ 'green'
+            ])
 
 
 
@@ -374,6 +385,48 @@ map.setPaintProperty('ras2',  'circle-color',[
 function statewide () {
 
 console.log("statewide function");
+
+// map.setFilter('ras2', ['in', 'Program', 'Foundation Initiative']);
+// currentProgram =  "statewide";
+
+console.log("CURR PROG");
+console.log(currentProgram);
+// map.setPaintProperty('ras2',  'circle-color',[
+//                 'match',
+//                 ['get', 'Program'],
+//                 'Tier 1', '#4789c8 ',
+//                 'Tier 2', '#72cac3',
+//                 'Individual Artist Award', '#e09641',
+//                 'Foundation Initiated', '#a5c6be',
+//                 'Sabbatical', '#a5c6be',
+//                 /* other */ 'green'
+//             ])
+
+var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
+
+
+
+var popMultipleState = statewideData.map(function (el) {
+
+return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
+ <p class="indent">${el.WebTitle}</p>
+         <br />`
+
+                })
+
+  var popDivState = ` <div class="popupCloseButton">X</div> <h4 class="loc" style="background-color:#333333">Statewide</h4><div class="pop">${popMultipleState.join('')}</div>`
+
+
+
+document.querySelector('.statewide').classList.add("vis");
+document.querySelector('.statewide').innerHTML = popDivState ;
+
+document.querySelector('.popupCloseButton').addEventListener('click', function () {
+
+document.querySelector('.statewide').classList.remove("vis");
+
+
+})
 
 
 }
