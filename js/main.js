@@ -6,21 +6,23 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtb
 var outerDiv = document.getElementById("map1");
 console.log(outerDiv)
 
-// outerDiv.ontouchmove = touchmo;
+outerDiv.ontouchmove = touchmo;
 
-// function touchmo (e){
-
-// e.preventDefault();
-// console.log("PREVENTINTOUGHMO")
-// }
-
-// outerDiv.onmousedown=modo;
-
-// function modo (e){
+function touchmo (e){
+  e.stopPropagation();
 
 // e.preventDefault();
-// console.log("PREVENTINMODO");
-// }
+console.log("PREVENTINTOUGHMO")
+}
+
+outerDiv.onmousedown=modo;
+
+function modo (e){
+  e.stopPropagation();
+
+// e.preventDefault();
+console.log("PREVENTINMODO");
+}
 
 
 
