@@ -27,7 +27,7 @@ console.log("PREVENTINMODO");
 
 
 
-var mapChildren = document.querySelector("map1 .mapboxgl-popup mapboxgl-popup-anchor-bottom");
+var mapChildren = document.querySelector("#map1.mapboxgl-popup");
 
 
 mapChildren.ontouchmove = kidsProp;
@@ -36,7 +36,6 @@ function kidsProp (e){
   e.stopPropagation();
 
 // e.preventDefault();
-console.log("PREVENTINMODO");
 }
 
 
