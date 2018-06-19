@@ -9,20 +9,39 @@ console.log(outerDiv)
 outerDiv.ontouchmove = touchmo;
 
 function touchmo (e){
-  e.stopPropagation();
+  // e.stopPropagation();
 
-// e.preventDefault();
+e.preventDefault();
 console.log("PREVENTINTOUGHMO")
 }
 
 outerDiv.onmousedown=modo;
 
 function modo (e){
+  // e.stopPropagation();
+
+e.preventDefault();
+console.log("PREVENTINMODO");
+}
+
+
+
+
+var mapChildren = document.querySelector("map1 .mapboxgl-popup mapboxgl-popup-anchor-bottom");
+
+
+mapChildren.ontouchmove = kidsProp;
+
+function kidsProp (e){
   e.stopPropagation();
 
 // e.preventDefault();
 console.log("PREVENTINMODO");
 }
+
+
+
+
 
 
 
