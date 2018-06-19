@@ -213,7 +213,7 @@ h4{
 
 }
 
-h4.loc {
+h4#loc {
 
 text-align: center;
 /*font-style: italic;*/
@@ -221,6 +221,8 @@ font-size: .8rem;
 border-radius: 2px;
 font-weight: bold;
 padding: 3px 0px 3px 0px;
+margin-bottom: 9px;
+/*margin-bottom: 124px;*/
 color: white;
 
 /*margin-top: 0px;*/
@@ -233,6 +235,7 @@ color: white;
     /*margin-right: 10px;*/
     /*padding-bottom: 2px;*/
     line-height: 94%;
+    /*margin-bottom: -19px;*/
 
 }
 .mapTitle {
@@ -456,9 +459,11 @@ line-height: 100%;
 
 }
 
-.mapboxgl-popup-content h3 {
+.mapboxgl-popup-content h4 {
 
-    margin-bottom: 0px;
+    margin-bottom: -3px;
+    margin-top: -3px;
+    /*padding-bottom: 0px;*/
 }
 
 .mapboxgl-popup-content p {
@@ -637,10 +642,13 @@ line-height: 108%;
 
 }
 
-.mapboxgl-popup-content h4 {
 /*font-size: 11px;*/
 
+.mapboxgl-popup-content h4 {
 
+    margin-bottom: -3px;
+    /*padding-bottom: 0px;*/
+}
 }
 
 

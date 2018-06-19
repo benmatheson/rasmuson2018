@@ -488,7 +488,7 @@ console.log(currentProgram);
 
     // Create a popup, but don't add it to the map yet.
     var popup = new mapboxgl.Popup({
-        closeButton: true,
+        closeButton: false,
         closeOnClick: true
     });
 
@@ -661,7 +661,7 @@ return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
 
                 })
 
-                var popDiv = `<h4 class="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
+                var popDiv = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
 
 
 // <div style="background-color:${bannerColor}" class="popUpLine"></div>
