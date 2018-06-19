@@ -3,40 +3,51 @@ console.log(ras_ak);
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'
 
-var outerDiv = document.getElementById("map1");
-console.log(outerDiv)
+// var outerDiv = document.getElementById("map1");
+// console.log(outerDiv)
 
-outerDiv.ontouchmove = touchmo;
+// outerDiv.ontouchmove = touchmo;
 
-function touchmo (e){
-  // e.stopPropagation();
-
-e.preventDefault();
-console.log("PREVENTINTOUGHMO")
-}
-
-outerDiv.onmousedown=modo;
-
-function modo (e){
-  // e.stopPropagation();
-
-e.preventDefault();
-console.log("PREVENTINMODO");
-}
-
-
-
-
-var mapChildren = document.querySelector("#map1.mapboxgl-popup");
-
-
-mapChildren.ontouchmove = kidsProp;
-
-function kidsProp (e){
-  e.stopPropagation();
+// function touchmo (e){
+//   // e.stopPropagation();
 
 // e.preventDefault();
-}
+// console.log("PREVENTINTOUGHMO")
+// }
+
+// outerDiv.onmousedown=modo;
+
+// function modo (e){
+//   // e.stopPropagation();
+
+// e.preventDefault();
+// console.log("PREVENTINMODO");
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var mapChildren = document.querySelector(".mapboxgl-popup");
+console.log("mapchildren ");
+// console.log(mapChildren);
+
+// mapChildren.ontouchmove = kidsProp;
+
+// function kidsProp (e){
+//   e.stopPropagation();
+
+// // e.preventDefault();
+// }
 
 
 
@@ -79,6 +90,17 @@ var cities_fake = './data/city_labels_fake.geojson';
 map.on('load', function() {
 
 
+var canv = document.querySelector(".mapboxgl-canvas");
+console.log(canv)
+
+canv.ontouchmove = canvtouchmo;
+
+function canvtouchmo (e){
+  // e.stopPropagation();
+
+e.preventDefault();
+
+}
 
 
 map.addSource('cities', {
