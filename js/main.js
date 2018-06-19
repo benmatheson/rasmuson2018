@@ -456,13 +456,15 @@ var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
 
 var popMultipleState = statewideData.map(function (el) {
 
-return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
+
+
+  return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
  <p class="indent">${el.WebTitle}</p>
          <br />`
 
                 })
 
-  var popDivState = ` <div class="popupCloseButton">X</div> <h4 class="loc" style="background-color:#333333">Statewide</h4><div class="pop">${popMultipleState.join('')}</div>`
+  var popDivState = ` <div class="popupCloseButton">X</div> <h4 id="locState" style="background-color:#333333">Statewide</h4><div class="pop">${popMultipleState.join('')}</div>`
 
 
 
@@ -655,7 +657,7 @@ console.log(e.features);
 
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
  <p class="indent">${el.WebTitle}</p>
          <br />`
 
@@ -774,7 +776,7 @@ console.log(e.features);
 
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
  <p class="indent">${el.WebTitle}</p>
          <br />`
 
@@ -1188,7 +1190,7 @@ console.log(e.features);
 
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName} - ${el.AwardAmount}</h4>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
  <p class="indent">${el.WebTitle}</p>
          <br />`
 
