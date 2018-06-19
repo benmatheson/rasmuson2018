@@ -14,7 +14,7 @@ e.preventDefault();
 console.log("PREVENTINTOUGHMO")
 }
 
-// outerDiv.onmousedown=modo;
+outerDiv.onmousedown=modo;
 
 function modo (e){
 
