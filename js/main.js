@@ -450,7 +450,7 @@ console.log(currentProgram);
 //                 /* other */ 'green'
 //             ])
 
-var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
+// var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
 
 
 
