@@ -450,7 +450,7 @@ console.log(currentProgram);
 //                 /* other */ 'green'
 //             ])
 
-// var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
+var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
 
 
 
@@ -587,11 +587,27 @@ map.on('mouseenter', 'ras2', function(e) {
         console.log(currentProgram)
 
         if (currentProgram == "allPrograms")
-            {currentData = ras_ak.filter(d=>d.loc == projLoc)}
+            {currentData = ras_ak.filter(d=>d.loc == projLoc)
+      currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
+
+            }
       
               else
 
-         {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)} 
+         {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
+             console.log("current unsorted");
+             console.log(currentData);
+
+              // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
+              // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
+   
+
+      currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
+
+    console.log("current sorted");
+             console.log(currentData);
+
+         } 
 
 
         /////this is where the ALL grants is being messed up. 
@@ -1116,12 +1132,30 @@ console.log(map.touchZoomRotate.defaultPrevented)
         console.log("currentPogrg")
         console.log(currentProgram)
 
-        if (currentProgram == "allPrograms")
-            {currentData = ras_ak.filter(d=>d.loc == projLoc)}
+   if (currentProgram == "allPrograms")
+            {currentData = ras_ak.filter(d=>d.loc == projLoc)
+      currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
+
+            }
       
               else
 
-         {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)} 
+         {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
+             console.log("current unsorted");
+             console.log(currentData);
+
+              // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
+              // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
+   
+
+      currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
+
+    console.log("current sorted");
+             console.log(currentData);
+
+         } 
+
+
 
 
         /////this is where the ALL grants is being messed up. 
