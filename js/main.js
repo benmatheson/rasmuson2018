@@ -453,6 +453,7 @@ console.log(currentProgram);
 
 var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide" || d.Program =="Foundation Initiative")
 
+statewideData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
 
 var popMultipleState = statewideData.map(function (el) {
