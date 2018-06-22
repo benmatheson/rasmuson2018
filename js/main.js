@@ -76,7 +76,8 @@ var red = './data/ras_ak_red.geojson';
 
 // var red_fake = './data/citiesAll_fake.geojson';
 // var red_fake = './data/citiesdot_fake.geojson';
-var red_fake = './data/citiesDot_6_18_fake.geojson';
+// var red_fake = './data/citiesDot_6_18_fake.geojson';
+var red_fake = './data/citiesDot_6_21_fake.geojson';
 
 
 // var ak_simple_fake = './data/alaska_simplified_fake.geojson';
@@ -450,7 +451,7 @@ console.log(currentProgram);
 //                 /* other */ 'green'
 //             ])
 
-var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
+var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide" || d.Program =="Foundation Initiative")
 
 
 
@@ -464,7 +465,7 @@ var popMultipleState = statewideData.map(function (el) {
 
                 })
 
-  var popDivState = ` <div class="popupCloseButton">X</div> <h4 id="locState" style="background-color:#333333">Statewide</h4><div class="pop">${popMultipleState.join('')}</div>`
+  var popDivState = ` <div class="popupCloseButton">X</div> <h4 id="locState" style="background-color:#333333">Statewide and Other Initiatives</h4><div class="pop">${popMultipleState.join('')}</div>`
 
 
 
