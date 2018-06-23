@@ -563,6 +563,10 @@ visibility: visible;
 
 
 
+.mapboxgl-ctrl-compass {
+display: none !important;
+}
+
 .popupCloseButton {
     background-color:whitesmoke;
     /*border: 4px solid #000000;*/
@@ -572,6 +576,10 @@ visibility: visible;
     font-family: sans-serif;
     font-weight: bold;
     position: absolute;
+
+  /*    position: -webkit-sticky;
+  position: sticky;*/
+  /*top: 20px;*/
     top: 0px;
     right: 0px;
     font-size: 22px;
@@ -588,8 +596,9 @@ visibility: visible;
 
     .statewide {
 
-position: absolute;
+  position:relative;
 right: 10%;
+
 
 }
 
