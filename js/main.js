@@ -751,7 +751,7 @@ setTimeout(set, 18)
 
 // popup.remove();
 
-e.stopPropagation();
+// e.stopPropagation();
 
 
 // function rv() {
