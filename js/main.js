@@ -1002,7 +1002,7 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 
     map.on('mouseleave', 'ras2', function() {
         map.getCanvas().style.cursor = '';
-        popup.remove();
+        // popup.remove();
     });
 
   map.on('touchend', 'ras2', function() {
