@@ -725,6 +725,8 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 
 setTimeout(set, 18)
 
+currentData = null;
+
 // function rv() {
 
 // if (e.features[0].properties.loc != "Anchorage, AK")
