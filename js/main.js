@@ -88,7 +88,7 @@ var cities_fake = './data/city_labels_fake.geojson';
 
     var popup = new mapboxgl.Popup({
         closeButton: false,
-        // closeOnClick: true
+        closeOnClick: true
     });
 
 
@@ -581,6 +581,11 @@ document.querySelector('.statewide').classList.remove("vis");
 //     });
 
     map.on('mouseleave', 'ras2', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
+
+  map.on('touchend', 'ras2', function() {
         map.getCanvas().style.cursor = '';
         popup.remove();
     });
