@@ -308,6 +308,11 @@ map.addLayer({
 
 map.scrollZoom.disable();
 
+map.dragPan.disable();
+
+//The new one.
+
+
 
 // // // disable map rotation using right click + drag
 // map.dragRotate.disable();
