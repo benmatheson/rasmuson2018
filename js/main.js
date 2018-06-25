@@ -594,11 +594,11 @@ document.querySelector('.statewide').classList.remove("vis");
 
 
 
-map.on('touchstart', 'ras2', function(e) {
-e.originalEvent.preventDefault(true);
-e.preventDefault(true);
+// map.on('touchstart', 'ras2', function(e) {
+// e.originalEvent.preventDefault(true);
+// e.preventDefault(true);
 
-})
+// })
 
 
 
