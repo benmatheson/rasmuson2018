@@ -1,5 +1,5 @@
-console.log("RASAK");
-console.log(ras_ak);
+// console.log("RASAK");
+// console.log(ras_ak);
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'
 
@@ -92,9 +92,9 @@ map.on('load', function() {
 
 
 var canv = document.querySelector(".mapboxgl-canvas");
-console.log(canv)
+// console.log(canv)
 
-canv.ontouchmove = canvtouchmo;
+// canv.ontouchmove = canvtouchmo;
 
 function canvtouchmo (e){
   // e.stopPropagation();
@@ -361,8 +361,8 @@ currentProgram =  "Tier 1";
 
 
 
-console.log("CURR PROG");
-console.log(currentProgram);
+// console.log("CURR PROG");
+// console.log(currentProgram);
 
 
 map.setPaintProperty('ras2',  'circle-color',[
