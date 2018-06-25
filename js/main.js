@@ -594,173 +594,177 @@ document.querySelector('.statewide').classList.remove("vis");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 map.on('touchstart', 'ras2', function(e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+e.originalEvent.preventDefault(true);
+e.preventDefault(true);
 
-
-console.log("DEFAULTS")
-console.log(map.touchZoomRotate.defaultPrevented)
-        ///////getting from teh JSON
-    // e.originalEvent.preventDefault(true);
-    // e.preventDefault(true);
+})
 
 
 
-        var projLoc= e.features[0].properties['loc'];
 
 
 
-        var featProgram = e.features[0].properties.Program;
-        var currentData;
 
-        console.log("currentPogrg")
-        console.log(currentProgram)
 
-   if (currentProgram == "allPrograms")
-            {currentData = ras_ak.filter(d=>d.loc == projLoc)
-      currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
-            }
+
+// map.on('touchstart', 'ras2', function(e) {
+//         // Change the cursor style as a UI indicator.
+//         map.getCanvas().style.cursor = 'pointer';
+
+
+// console.log("DEFAULTS")
+// console.log(map.touchZoomRotate.defaultPrevented)
+//         ///////getting from teh JSON
+//     // e.originalEvent.preventDefault(true);
+//     // e.preventDefault(true);
+
+
+
+//         var projLoc= e.features[0].properties['loc'];
+
+
+
+//         var featProgram = e.features[0].properties.Program;
+//         var currentData;
+
+//         console.log("currentPogrg")
+//         console.log(currentProgram)
+
+//    if (currentProgram == "allPrograms")
+//             {currentData = ras_ak.filter(d=>d.loc == projLoc)
+//       currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
+
+//             }
       
-              else
+//               else
 
-         {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
-             console.log("current unsorted");
-             console.log(currentData);
+//          {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
+//              console.log("current unsorted");
+//              console.log(currentData);
 
-              // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
-              // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
+//               // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
+//               // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
    
 
-      currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
+//       currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
-    console.log("current sorted");
-             console.log(currentData);
+//     console.log("current sorted");
+//              console.log(currentData);
 
-         } 
-
-
+//          } 
 
 
-        /////this is where the ALL grants is being messed up. 
 
-// switch(expression) {
-//     case n:
-//         code block
-//         break;
-//     case n:
-//         code block
-//         break;
-//     default:
-//         code block
+
+//         /////this is where the ALL grants is being messed up. 
+
+// // switch(expression) {
+// //     case n:
+// //         code block
+// //         break;
+// //     case n:
+// //         code block
+// //         break;
+// //     default:
+// //         code block
+// // }
+
+
+// var bannerColor;
+
+// switch (currentProgram) {
+
+//   case "Tier 1":
+//   bannerColor = "#4789c8";
+//   break;
+
+//   case "Tier 2":
+//   bannerColor = "#72cac3";
+//   break;
+
+//   case "Sabbatical":
+//   bannerColor="#a5c6be";
+//   break;
+
+//     case "Individual Artist Award":
+//   bannerColor="#e09641";
+//   break;
+
+// default: 
+//         bannerColor="#333333";
+
+
+
 // }
 
 
-var bannerColor;
+// console.log("the color");
+// console.log(bannerColor);
 
-switch (currentProgram) {
+// console.log("moutOVER features");
+// console.log(e.features);
 
-  case "Tier 1":
-  bannerColor = "#4789c8";
-  break;
-
-  case "Tier 2":
-  bannerColor = "#72cac3";
-  break;
-
-  case "Sabbatical":
-  bannerColor="#a5c6be";
-  break;
-
-    case "Individual Artist Award":
-  bannerColor="#e09641";
-  break;
-
-default: 
-        bannerColor="#333333";
-
-
-
-}
-
-
-console.log("the color");
-console.log(bannerColor);
-
-console.log("moutOVER features");
-console.log(e.features);
-
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        // var des = e.features[0].properties['Web Title'];
-        // var name = e.features[0].properties['Organization Name'];
-        // var award = e.features[0].properties['Award Amount'];
+//         var coordinates = e.features[0].geometry.coordinates.slice();
+//         // var des = e.features[0].properties['Web Title'];
+//         // var name = e.features[0].properties['Organization Name'];
+//         // var award = e.features[0].properties['Award Amount'];
 
 
 
 
 
-        var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
-          <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br />             
-          <h3>Award: </h3>${currentData[0].AwardAmount} 
-                <br />
-                <h3>Description: </h3>${projLoc}</div>`
+//         var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
+//           <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br />             
+//           <h3>Award: </h3>${currentData[0].AwardAmount} 
+//                 <br />
+//                 <h3>Description: </h3>${projLoc}</div>`
 
 
-           var popMultiple = currentData.map(function (el) {
+//            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
- <p class="indent">${el.WebTitle}</p>
-         <br />`
+// return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
+//  <p class="indent">${el.WebTitle}</p>
+//          <br />`
 
-                })
+//                 })
 
-                var popDiv = `<h4 class="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
+//                 var popDiv = `<h4 class="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
 
 
-// <div style="background-color:${bannerColor}" class="popUpLine"></div>
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+// // <div style="background-color:${bannerColor}" class="popUpLine"></div>
+//         // Ensure that if the map is zoomed out such that multiple
+//         // copies of the feature are visible, the popup appears
+//         // over the copy being pointed to.
+//         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+//             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+//         }
 
 
 
 
 
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(coordinates)
-            .setHTML(popDiv)
-            .addTo(map);
+//         // Populate the popup and set its coordinates
+//         // based on the feature found.
+//         popup.setLngLat(coordinates)
+//             .setHTML(popDiv)
+//             .addTo(map);
 
 
-// function rv() {
+// // function rv() {
 
-// if (e.features[0].properties.loc != "Anchorage, AK")
-// {
-//   popup.remove();
-// }
+// // if (e.features[0].properties.loc != "Anchorage, AK")
+// // {
+// //   popup.remove();
+// // }
 
-// }
+// // }
 
-// setTimeout(rv, 1000)
+// // setTimeout(rv, 1000)
 
-    });
+//     });
 
 
 
