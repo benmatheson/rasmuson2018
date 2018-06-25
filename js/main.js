@@ -593,8 +593,41 @@ map.on('mouseenter', 'ras2', function(e) {
         var featProgram = e.features[0].properties.Program;
         var currentData;
 
-        console.log("currentPogrg")
-        console.log(currentProgram)
+   
+
+
+var bannerColor;
+
+switch (currentProgram) {
+
+  case "Tier 1":
+  bannerColor = "#4789c8";
+  break;
+
+  case "Tier 2":
+  bannerColor = "#72cac3";
+  break;
+
+  case "Sabbatical":
+  bannerColor="#a5c6be";
+  break;
+
+    case "Individual Artist Award":
+  bannerColor="#e09641";
+  break;
+
+default: 
+        bannerColor="#333333";
+
+
+
+}
+
+
+
+
+
+
 
         if (currentProgram == "allPrograms")
             {currentData = ras_ak.filter(d=>d.loc == projLoc)
@@ -634,39 +667,12 @@ map.on('mouseenter', 'ras2', function(e) {
 // }
 
 
-var bannerColor;
 
-switch (currentProgram) {
+// console.log("the color");
+// console.log(bannerColor);
 
-  case "Tier 1":
-  bannerColor = "#4789c8";
-  break;
-
-  case "Tier 2":
-  bannerColor = "#72cac3";
-  break;
-
-  case "Sabbatical":
-  bannerColor="#a5c6be";
-  break;
-
-    case "Individual Artist Award":
-  bannerColor="#e09641";
-  break;
-
-default: 
-        bannerColor="#333333";
-
-
-
-}
-
-
-console.log("the color");
-console.log(bannerColor);
-
-console.log("moutOVER features");
-console.log(e.features);
+// console.log("moutOVER features");
+// console.log(e.features);
 
         var coordinates = e.features[0].geometry.coordinates.slice();
         // var des = e.features[0].properties['Web Title'];
@@ -707,10 +713,17 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 
         // Populate the popup and set its coordinates
         // based on the feature found.
+  //         function set () {
+
+
+        function set () {
         popup.setLngLat(coordinates)
             .setHTML(popDiv)
             .addTo(map);
 
+}
+
+setTimeout(set, 10)
 
 function rv() {
 
@@ -758,96 +771,96 @@ if (e.features[0].properties.loc != "Anchorage, AK")
 
 // map.touchZoomRotate.enable();
 // map.dragPan.enable();
-console.log('DRAGGIN?')
-console.log(map.dragPan.isEnabled())
-console.log(map.touchZoomRotate.isEnabled())
+// console.log('DRAGGIN?')
+// console.log(map.dragPan.isEnabled())
+// console.log(map.touchZoomRotate.isEnabled())
 
 
-map.on('mousedown', 'ras2', function(e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+// map.on('mousedown', 'ras2', function(e) {
+//         // Change the cursor style as a UI indicator.
+//         map.getCanvas().style.cursor = 'pointer';
 
-    // e.originalEvent.preventDefault(true);
-    // e.preventDefault(true);
-
-
-        ///////getting from teh JSON
+//     // e.originalEvent.preventDefault(true);
+//     // e.preventDefault(true);
 
 
-
-        var projLoc= e.features[0].properties['loc'];
+//         ///////getting from teh JSON
 
 
 
-        var featProgram = e.features[0].properties.Program;
-
-        var currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
+//         var projLoc= e.features[0].properties['loc'];
 
 
 
-console.log("CLEICK FESTURE");
-console.log(e.features);
+//         var featProgram = e.features[0].properties.Program;
 
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        // var des = e.features[0].properties['Web Title'];
-        // var name = e.features[0].properties['Organization Name'];
-        // var award = e.features[0].properties['Award Amount'];
-
-        var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc}<br />
-          <h3>Project Location: </h3>${projLoc}  <br />             
-          <h3>Award: </h3>${currentData[0].AwardAmount} 
-                <br />
-                <h3>Description: </h3>${projLoc}</div>`
-
-
-           var popMultiple = currentData.map(function (el) {
-
-return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
- <p class="indent">${el.WebTitle}</p>
-         <br />`
-
-                })
-
-                var popDiv = `<div class="pop">MOUSEDOWN${popMultiple.join('')}</div>`
+//         var currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
 
 
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+// console.log("CLEICK FESTURE");
+// console.log(e.features);
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
+//         var coordinates = e.features[0].geometry.coordinates.slice();
+//         // var des = e.features[0].properties['Web Title'];
+//         // var name = e.features[0].properties['Organization Name'];
+//         // var award = e.features[0].properties['Award Amount'];
+
+//         var popContent = `<div class="pop"><h3>Recipient: </h3>${projLoc}<br />
+//           <h3>Project Location: </h3>${projLoc}  <br />             
+//           <h3>Award: </h3>${currentData[0].AwardAmount} 
+//                 <br />
+//                 <h3>Description: </h3>${projLoc}</div>`
 
 
-        function set () {
+//            var popMultiple = currentData.map(function (el) {
+
+// return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
+//  <p class="indent">${el.WebTitle}</p>
+//          <br />`
+
+//                 })
+
+//                 var popDiv = `<div class="pop">MOUSEDOWN${popMultiple.join('')}</div>`
+
+
+
+//         // Ensure that if the map is zoomed out such that multiple
+//         // copies of the feature are visible, the popup appears
+//         // over the copy being pointed to.
+//         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+//             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+//         }
+
+//         // Populate the popup and set its coordinates
+//         // based on the feature found.
+
+
+//         function set () {
 
 
         
-        popup.setLngLat(coordinates)
-            .setHTML(popDiv)
-            .addTo(map);
-}
+//         popup.setLngLat(coordinates)
+//             .setHTML(popDiv)
+//             .addTo(map);
+// }
 
 
-setTimeout(set, 1000)
+// setTimeout(set, 1000)
 
-function rv() {
+// function rv() {
 
-if (e.features[0].properties.loc != "Anchorage, AK")
-{
-  popup.remove();
-}
+// if (e.features[0].properties.loc != "Anchorage, AK")
+// {
+//   popup.remove();
+// }
 
-}
+// }
 
-// setTimeout(rv, 2000)
+// // setTimeout(rv, 2000)
 
     
-    });
+//     });
 
 
 
