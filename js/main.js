@@ -308,7 +308,7 @@ map.addLayer({
 
 map.scrollZoom.disable();
 
-map.dragPan.disable();
+// map.dragPan.disable();
 
 //The new one.
 
