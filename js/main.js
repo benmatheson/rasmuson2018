@@ -908,6 +908,11 @@ console.log(e.features);
 
 
 
+
+
+
+
+
         var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
           <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br />             
           <h3>Award: </h3>${currentData[0].AwardAmount} 
@@ -923,8 +928,7 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 
                 })
 
-                var popDiv = `<h4 class="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
-
+                var popDiv = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
 
 // <div style="background-color:${bannerColor}" class="popUpLine"></div>
         // Ensure that if the map is zoomed out such that multiple
