@@ -86,9 +86,22 @@ var ak_simple_fake = './data/alaska_fake.geojson';
 
 var cities_fake = './data/city_labels_fake.geojson';
 
+    var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: true
+    });
+
 
 
 map.on('load', function() {
+
+      // var popup = new mapboxgl.Popup({
+    //     closeButton: false,
+    //     closeOnClick: true
+    // });
+
+
+
 
 
 var canv = document.querySelector(".mapboxgl-canvas");
@@ -499,10 +512,10 @@ document.querySelector('.statewide').classList.remove("vis");
 
 
     // Create a popup, but don't add it to the map yet.
-    var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: true
-    });
+    // var popup = new mapboxgl.Popup({
+    //     closeButton: false,
+    //     closeOnClick: true
+    // });
 
 
 // map.on('mouseenter', 'ras2', function(e) {
@@ -583,6 +596,14 @@ map.on('mouseenter', 'ras2', function(e) {
 
 
         ///////getting from teh JSON
+
+        // popup.remove();
+
+
+    // var popup = new mapboxgl.Popup({
+    //     closeButton: false,
+    //     closeOnClick: true
+    // });
 
 
 
@@ -726,6 +747,8 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 setTimeout(set, 18)
 
 currentData = null;
+
+popup.remove();
 
 // function rv() {
 
