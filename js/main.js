@@ -821,10 +821,19 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 
         // Populate the popup and set its coordinates
         // based on the feature found.
+
+
+        function set () {
+
+
+        
         popup.setLngLat(coordinates)
             .setHTML(popDiv)
             .addTo(map);
+}
 
+
+setTimeout(set, 1000)
 
 function rv() {
 
