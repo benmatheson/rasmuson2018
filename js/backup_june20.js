@@ -554,10 +554,10 @@ console.log(currentProgram);
 //             .addTo(map);
 //     });
 
-//     map.on('mouseleave', 'ras2', function() {
-//         map.getCanvas().style.cursor = '';
-//         popup.remove();
-//     });
+    map.on('mouseleave', 'ras2', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
 
 
 
@@ -565,7 +565,7 @@ console.log(currentProgram);
 
 //#########mouseover
 
-map.on('mouseenter', 'ras2', function(e) {
+map.on('mouseover', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -671,10 +671,6 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
-
-
-
-
 
 
         // Populate the popup and set its coordinates
