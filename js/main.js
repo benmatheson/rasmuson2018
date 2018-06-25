@@ -129,6 +129,7 @@ map.addSource('ras1', {
   type: 'geojson',
   // data: 'https://rawgit.com/benmatheson/2011_test/master/ras_ak_red.geojson'
   data: red_fake,
+  "buffer": 0,
 
      "maxzoom": 10
 
@@ -746,9 +747,12 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 
 setTimeout(set, 18)
 
-currentData = null;
+// currentData = null;
 
-popup.remove();
+// popup.remove();
+
+e.stopPropagation();
+
 
 // function rv() {
 
