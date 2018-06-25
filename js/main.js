@@ -88,7 +88,7 @@ var cities_fake = './data/city_labels_fake.geojson';
 
     var popup = new mapboxgl.Popup({
         closeButton: false,
-        closeOnClick: true
+        // closeOnClick: true
     });
 
 
