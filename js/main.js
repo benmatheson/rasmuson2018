@@ -87,7 +87,7 @@ var ak_simple_fake = './data/alaska_fake.geojson';
 var cities_fake = './data/city_labels_fake.geojson';
 
     var popup = new mapboxgl.Popup({
-        closeButton: false,
+        closeButton: true,
         closeOnClick: true
     });
 
