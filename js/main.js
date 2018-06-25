@@ -38,7 +38,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtb
 
 
 // var mapChildren = document.querySelector(".mapboxgl-popup");
-console.log("mapchildren ");
+// console.log("mapchildren ");
 // console.log(mapChildren);
 
 // mapChildren.ontouchmove = kidsProp;
@@ -183,7 +183,7 @@ map.addSource('rasShape', {
 
   'circle-radius': {
                 // 'base': 7,
-                'stops': [[5, 11], [12, 30]]
+                'stops': [[5, 10], [12, 30]]
             },
 
 
@@ -292,14 +292,14 @@ map.addLayer({
 
  // ["in", "class", "street_major", "street_minor", "street_limited"]
 
-map.scrollZoom.disable();
+// map.scrollZoom.disable();
 
 
-// // disable map rotation using right click + drag
-map.dragRotate.disable();
+// // // disable map rotation using right click + drag
+// map.dragRotate.disable();
 
-// disable map rotation using touch rotation gesture
-map.touchZoomRotate.disableRotation();
+// // disable map rotation using touch rotation gesture
+// map.touchZoomRotate.disableRotation();
 
 
 //###** things to try
@@ -383,8 +383,8 @@ function t2() {
 map.setFilter('ras2', ['in', 'Program', 'Tier 2']);
 
 currentProgram =  "Tier 2";
-console.log("CURR PROG");
-console.log(currentProgram);
+// console.log("CURR PROG");
+// console.log(currentProgram);
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
@@ -403,8 +403,8 @@ function iaa() {
 map.setFilter('ras2', ['in', 'Program', 'Individual Artist Award']);
 
 currentProgram =  "Individual Artist Award";
-console.log("CURR PROG");
-console.log(currentProgram);
+// console.log("CURR PROG");
+// console.log(currentProgram);
 
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
@@ -423,8 +423,8 @@ function sabbatical() {
 map.setFilter('ras2', ['in', 'Program', 'Sabbatical']);
 currentProgram =  "Sabbatical";
 
-console.log("CURR PROG");
-console.log(currentProgram);
+// console.log("CURR PROG");
+// console.log(currentProgram);
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
@@ -441,13 +441,13 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 function statewide () {
 
-console.log("statewide function");
+// console.log("statewide function");
 
 // map.setFilter('ras2', ['in', 'Program', 'Foundation Initiative']);
 // currentProgram =  "statewide";
 
-console.log("CURR PROG");
-console.log(currentProgram);
+// console.log("CURR PROG");
+// console.log(currentProgram);
 // map.setPaintProperty('ras2',  'circle-color',[
 //                 'match',
 //                 ['get', 'Program'],
@@ -491,8 +491,8 @@ document.querySelector('.statewide').classList.remove("vis");
 
 }
 
-console.log("CURR PROG");
-console.log(currentProgram);
+// console.log("CURR PROG");
+// console.log(currentProgram);
 
 
 
@@ -647,8 +647,8 @@ default:
 
       currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
-    console.log("current sorted");
-             console.log(currentData);
+    // console.log("current sorted");
+    //          console.log(currentData);
 
          } 
 
@@ -683,8 +683,8 @@ default:
 
 
 
-        var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
-          <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br /> `            
+        // var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
+        //   <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br /> `            
       
 
            var popMultiple = currentData.map(function (el) {
@@ -723,18 +723,18 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
 
 }
 
-setTimeout(set, 10)
+setTimeout(set, 18)
 
-function rv() {
+// function rv() {
 
-if (e.features[0].properties.loc != "Anchorage, AK")
-{
-  popup.remove();
-}
+// if (e.features[0].properties.loc != "Anchorage, AK")
+// {
+//   popup.remove();
+// }
 
-}
+// }
 
-// setTimeout(rv, 4100)
+// // setTimeout(rv, 4100)
 
     });
 
