@@ -579,10 +579,10 @@ document.querySelector('.statewide').classList.remove("vis");
 //             .addTo(map);
 //     });
 
-//     map.on('mouseleave', 'ras2', function() {
-//         map.getCanvas().style.cursor = '';
-//         popup.remove();
-//     });
+    map.on('mouseleave', 'ras2', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
 
 
 
