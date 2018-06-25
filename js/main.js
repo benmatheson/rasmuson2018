@@ -107,7 +107,7 @@ map.on('load', function() {
 var canv = document.querySelector(".mapboxgl-canvas");
 // console.log(canv)
 
-// canv.ontouchmove = canvtouchmo;
+canv.ontouchmove = canvtouchmo;
 
 function canvtouchmo (e){
   // e.stopPropagation();
