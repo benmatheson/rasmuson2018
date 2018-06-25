@@ -749,16 +749,16 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmou
             .addTo(map);
 
 
-function rv() {
+// function rv() {
 
-if (e.features[0].properties.loc != "Anchorage, AK")
-{
-  popup.remove();
-}
+// if (e.features[0].properties.loc != "Anchorage, AK")
+// {
+//   popup.remove();
+// }
 
-}
+// }
 
-setTimeout(rv, 1000)
+// setTimeout(rv, 1000)
 
     });
 
