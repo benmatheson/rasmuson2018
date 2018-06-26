@@ -269,12 +269,12 @@ top: 20px;
 left: 20px;
 /*background-color: rgba(0,0,0,.66);*/
 background-color: rgba(255,255,255,.89);
-/*width: 50%;*/
+max-width: 70%;
 /*height: 100px;*/
 z-index: 100;
 /*background-*/blend-mode: multiply;;
 border-radius: 4px;
-padding: .7%;
+padding: .8%;
 }
 
 .mapTitleText {
@@ -283,12 +283,11 @@ font-weight: 500;
 font-size: 1.9rem;
 opacity: 1;
 line-height: 2.2rem;
-/*color: black;*/
+color: black;
 /*color: whitesmoke;*/
 
-/*color: black;*/
 margin: auto;
-/*padding: 4%;*/
+padding: 2%;
 font-family: "Fira Sans", sans-serif;
 
 }
@@ -304,7 +303,7 @@ color: black;
 /*color: whitesmoke;*/
 
 margin: auto;
-padding-top: 4%;
+/*padding-top: 4%;*/
 font-family: "Fira Sans", sans-serif;
 
 
@@ -528,7 +527,7 @@ margin-top: 0px;
 
 .statewide {
 
-position: absolute;
+position: fixed;
 right: 35%;
 top: 100px;
 overflow-y: auto;
@@ -541,9 +540,9 @@ background-color: whitesmoke;
 height: 300px;
 width: 250px;
 visibility: hidden;
-z-index: 100;
+z-index: 101;
 transition: all .5s ease;
-margin: 2%;
+/*margin: 2%;*/
 padding: 2%;
 }
 
@@ -590,13 +589,30 @@ display: none !important;
 }
 
 
+@media only screen and (min-width: 601px) {
 
-@media only screen and (max-width: 600px) {
 
+
+
+}
+
+
+@media only screen and (max-width: 700px) {
+
+
+.mapTitleText {
+
+display: none;
+}
+
+.mapTitle {
+
+    /*max-height: 40px;*/
+}
 
     .statewide {
 
-  position:relative;
+  position:absolute;
 right: 10%;
 
 
