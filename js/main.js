@@ -498,11 +498,15 @@ var popMultipleState = statewideData.map(function (el) {
 
 
 document.querySelector('.statewide').classList.add("vis");
-document.querySelector('.statewide').innerHTML = popDivState ;
+// document.querySelector('.statewideInner').classList.add("vis");
 
-document.querySelector('.popupCloseButton').addEventListener('click', function () {
+document.querySelector('.statewideInner').innerHTML = popDivState;
+
+document.querySelector(".popupCloseButton").addEventListener('click', function () {
 
 document.querySelector('.statewide').classList.remove("vis");
+// document.querySelector('.statewideInner').classList.remove("vis");
+// console.log("functioning");
 
 
 })

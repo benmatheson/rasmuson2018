@@ -528,9 +528,9 @@ margin-top: 0px;
 .statewide {
 
 position: fixed;
+/*position: sticky;*/
 right: 35%;
 top: 100px;
-overflow-y: auto;
 border-radius: 5px;
 line-height: 100%;
 font-size: 11px;
@@ -544,6 +544,16 @@ z-index: 101;
 transition: all .5s ease;
 /*margin: 2%;*/
 padding: 2%;
+}
+
+
+
+.statewideInner{
+overflow-y: auto;
+max-height: 250px;
+/*visibility: hidden;*/
+
+
 }
 
 .statewide h4 {
@@ -575,8 +585,8 @@ display: none !important;
     font-family: sans-serif;
     font-weight: bold;
     position: absolute;
-
-  /*    position: -webkit-sticky;
+/*
+      position: -webkit-sticky;
   position: sticky;*/
   /*top: 20px;*/
     top: 0px;
@@ -586,6 +596,7 @@ display: none !important;
     width: 30px;
     height: 30px;
     text-align: center;
+    z-index: 101;
 }
 
 
