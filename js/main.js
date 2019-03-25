@@ -68,6 +68,9 @@ var map = new mapboxgl.Map({
 // }
 });
 
+
+var hoveredStateId =  null;
+
 // var red = './data/ras_ak_red.geojson';
 var fake = './data/ras_ak_fake.geojson';
 
@@ -112,6 +115,7 @@ map.addSource('ras1', {
   type: 'geojson',
   // data: 'https://rawgit.com/benmatheson/2011_test/master/ras_ak_red.geojson'
   data: fake,
+  generateId: true,
   "buffer": 0,
 
      "maxzoom": 10
@@ -226,6 +230,18 @@ map.addSource('rasShape', {
                 /* other */ 'purple'
             ],
 
+            
+//             "circle-opacity": ["case",
+// ["boolean", ["feature-state", "hover"], false],
+// 1,
+// 0.5
+// ],
+"circle-stroke-width": ["case",
+["boolean", ["feature-state", "hover"], false],
+1.7,
+0
+]
+
             // 'circle-stroke-color': "darkblue",
             // 'circle-stroke-width': 1,
             // 'circle-color': 'rgba(0,0,0,0)'
@@ -313,7 +329,15 @@ map.scrollZoom.disable();
 
 
 
-
+map.on("mousemove", "ras2", function(e) {
+  if (e.features.length > 0) {
+  if (hoveredStateId) {
+  map.setFeatureState({source: 'ras1', id: hoveredStateId}, { hover: false});
+  }
+  hoveredStateId = e.features[0].id;
+  map.setFeatureState({source: 'ras1', id: hoveredStateId}, { hover: true});
+  }
+  });
 
 
 
