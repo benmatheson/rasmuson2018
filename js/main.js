@@ -68,22 +68,11 @@ var map = new mapboxgl.Map({
 // }
 });
 
-var red = './data/ras_ak_red.geojson';
-// var red_fake = './data/ras_ak_red_fake.geojson';
-// var red_fake = './data/ras_ak_red_fake.geojson';
-
-//replaces teh old one.
-
-// var red_fake = './data/citiesAll_fake.geojson';
-// var red_fake = './data/citiesdot_fake.geojson';
-// var red_fake = './data/citiesDot_6_18_fake.geojson';
-var red_fake = './data/citiesDot_6_21_fake.geojson';
+// var red = './data/ras_ak_red.geojson';
+var fake = './data/ras_ak_fake.geojson';
 
 
-// var ak_simple_fake = './data/alaska_simplified_fake.geojson';
 var ak_simple_fake = './data/alaska_fake.geojson';
-
-
 var cities_fake = './data/city_labels_fake.geojson';
 
     var popup = new mapboxgl.Popup({
@@ -94,12 +83,6 @@ var cities_fake = './data/city_labels_fake.geojson';
 
 
 map.on('load', function() {
-
-      // var popup = new mapboxgl.Popup({
-    //     closeButton: false,
-    //     closeOnClick: true
-    // });
-
 
 
 
@@ -128,7 +111,7 @@ map.addSource('cities', {
 map.addSource('ras1', {
   type: 'geojson',
   // data: 'https://rawgit.com/benmatheson/2011_test/master/ras_ak_red.geojson'
-  data: red_fake,
+  data: fake,
   "buffer": 0,
 
      "maxzoom": 10
@@ -235,12 +218,12 @@ map.addSource('rasShape', {
             'circle-color': [
                 'match',
                 ['get', 'Program'],
-                'Tier 1', '#4789c8 ',
-                'Tier 2', '#72cac3',
+                'Small Grants', '#4789c8 ',
+                'Large Grants', '#72cac3',
                 'Individual Artist Award', '#e09641',
-                'Foundation Initiated', '#a5c6be',
+                'Foundation Initiatives', '#a5c6be',
                 'Sabbatical', '#a5c6be',
-                /* other */ 'green'
+                /* other */ 'purple'
             ],
 
             // 'circle-stroke-color': "darkblue",
@@ -348,7 +331,7 @@ var currentProgram = 'allPrograms';
 
 function allGrants () { 
 
-map.setFilter('ras2', ['in', 'Program', 'Tier 1', 'Tier 2', 'Sabbatical', "Individual Artist Award"]);
+map.setFilter('ras2', ['in', 'Program', 'Small Grants', 'Large Grants', 'Sabbatical', "Individual Artist Award"]);
 
 currentProgram = 'allPrograms';
 console.log("CURR PROG");
@@ -360,8 +343,8 @@ console.log(currentProgram);
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
-                'Tier 1', '#4789c8 ',
-                'Tier 2', '#72cac3',
+                'Small Grants', '#4789c8 ',
+                'Large Grants', '#72cac3',
                 'Individual Artist Award', '#e09641',
                 'Foundation Initiated', '#a5c6be',
                 'Sabbatical', '#a5c6be',
@@ -374,9 +357,9 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 function t1 () {
 
-map.setFilter('ras2', ['in', 'Program', 'Tier 1']);
+map.setFilter('ras2', ['in', 'Program', 'Small Grants']);
 
-currentProgram =  "Tier 1";
+currentProgram =  "Small Grants";
 
 
 
@@ -387,8 +370,8 @@ currentProgram =  "Tier 1";
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
-                'Tier 1', '#4789c8 ',
-                'Tier 2', '#72cac3',
+                'Small Grants', '#4789c8',
+                'Large Grants', '#72cac3',
                 'Individual Artist Award', '#e09641',
                 'Foundation Initiated', '#a5c6be',
                 'Sabbatical', '#a5c6be',
@@ -399,16 +382,16 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 
 function t2() {
-map.setFilter('ras2', ['in', 'Program', 'Tier 2']);
+map.setFilter('ras2', ['in', 'Program', 'Large Grants']);
 
-currentProgram =  "Tier 2";
+currentProgram =  "Large Grants";
 // console.log("CURR PROG");
 // console.log(currentProgram);
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
-                'Tier 1', '#4789c8 ',
-                'Tier 2', '#72cac3',
+                'Small Grants', '#4789c8 ',
+                'Large Grants', '#72cac3',
                 'Individual Artist Award', '#e09641',
                 'Foundation Initiated', '#a5c6be',
                 'Sabbatical', '#a5c6be',
@@ -428,8 +411,8 @@ currentProgram =  "Individual Artist Award";
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
-                'Tier 1', '#4789c8 ',
-                'Tier 2', '#72cac3',
+                'Small Grants', '#4789c8 ',
+                'Large Grants', '#72cac3',
                 'Individual Artist Award', '#e09641',
                 'Foundation Initiated', '#a5c6be',
                 'Sabbatical', '#a5c6be',
@@ -447,8 +430,8 @@ currentProgram =  "Sabbatical";
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
                 ['get', 'Program'],
-                'Tier 1', '#4789c8 ',
-                'Tier 2', '#72cac3',
+                'Small Grants', '#4789c8 ',
+                'Large Grants', '#72cac3',
                 'Individual Artist Award', '#e09641',
                 'Foundation Initiated', '#a5c6be',
                 'Sabbatical', '#a5c6be',
@@ -501,6 +484,34 @@ document.querySelector('.statewide').classList.add("vis");
 // document.querySelector('.statewideInner').classList.add("vis");
 
 document.querySelector('.statewideInner').innerHTML = popDivState;
+
+
+console.log("statewdieinner");
+
+console.log(document.querySelector('.statewideInner'))
+
+console.log(document.querySelector('.statewideInner').innerHTML == popDivState);
+
+// if (document.querySelector('.statewideInner') == popDivState) {
+
+// document.querySelector(".map").addEventListener('click', function () {
+
+// document.querySelector('.statewide').classList.remove("vis");
+// console.log("insdiel click");
+
+// })
+
+
+// }
+
+// document.querySelector(".map").addEventListener('click', function (e) {
+
+// e.stopPropagation()
+
+// })
+
+
+
 
 document.querySelector(".popupCloseButton").addEventListener('click', function () {
 
@@ -878,11 +889,11 @@ var bannerColor;
 
 switch (currentProgram) {
 
-  case "Tier 1":
+  case "Small Grants":
   bannerColor = "#4789c8";
   break;
 
-  case "Tier 2":
+  case "Large Grants":
   bannerColor = "#72cac3";
   break;
 
@@ -1041,8 +1052,8 @@ map.on('mouseenter', 'ras2', function(e) {
     // });
 
 
-
-        var projLoc= e.features[0].properties['loc'];
+//imortant
+        var projLoc= e.features[0].properties['ProjectLocationMatch'];
 
 
 
@@ -1056,11 +1067,11 @@ var bannerColor;
 
 switch (currentProgram) {
 
-  case "Tier 1":
+  case "Small Grants":
   bannerColor = "#4789c8";
   break;
 
-  case "Tier 2":
+  case "Large Grants":
   bannerColor = "#72cac3";
   break;
 
@@ -1086,14 +1097,14 @@ default:
 
 
         if (currentProgram == "allPrograms")
-            {currentData = ras_ak.filter(d=>d.loc == projLoc)
+            {currentData = ras_ak.filter(d=>d.ProjectLocationMatch == projLoc)
       currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
             }
       
               else
 
-         {currentData = ras_ak.filter(d=>d.loc == projLoc && d.Program == featProgram)
+         {currentData = ras_ak.filter(d=>d.ProjectLocationMatch == projLoc && d.Program == featProgram)
              console.log("current unsorted");
              console.log(currentData);
 
@@ -1145,13 +1156,13 @@ default:
 
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
- <p class="indent">${el.WebTitle}</p>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- $${el.AwardAmount}</h4>
+ <p class="indent">${el.Description}</p>
          <br />`
 
                 })
 
-                var popDiv = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-4)}</h4><div class="pop">${popMultiple.join('')}</div>`
+                var popDiv = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultiple.join('')}</div>`
 
 
 // <div style="background-color:${bannerColor}" class="popUpLine"></div>

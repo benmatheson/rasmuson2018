@@ -105,15 +105,14 @@ textarea {
 
     from {
     opacity: 0;
-    background-color: red;
-
+    /* background-color: red; */
     }
 
 
     to {
 
     opacity: 1;
-    background-color: blue;
+    /* background-color: blue; */
     }
 }
 
@@ -192,10 +191,12 @@ width: 100%;
     .mapboxgl-popup {
         max-width: 230px;
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        /*animation: popTrans, 4s, linear, .5s;*/
-        z-index: 99;
+        /* animation: popTrans, 4s, linear, .5s; */
+        /* z-index: 99; */
+        opacity: 1;
 
-        /*background-color: pink;*/
+        /* transition: opacity 2s ease; */
+        /* background-color: pink; */
     }
 
 
@@ -256,7 +257,7 @@ color: white;
     /*padding-left: 10px;*/
     /*margin-right: 10px;*/
     /*padding-bottom: 2px;*/
-    line-height: 94%;
+    line-height: 99%;
     /*margin-bottom: -19px;*/
 
 }
@@ -480,6 +481,9 @@ overflow-x: scroll ! important;*/
 overflow-y: auto;
         border-radius: 50px;
 line-height: 100%;
+/* background-color: blue; */
+animation: popTrans .3s linear;
+
 
 /*background-color: rgba(255,255,255,.1);*/
 
