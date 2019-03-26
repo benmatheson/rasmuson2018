@@ -76,7 +76,9 @@ var fake = './data/ras_ak_fake.geojson';
 
 
 var ak_simple_fake = './data/alaska_fake.geojson';
-var cities_fake = './data/city_labels_fake.geojson';
+// var cities_fake = './data/city_labels_fake.geojson';
+var cities_fake = './data/cities_fake.geojson';
+// cities_fake.geojson
 
     var popup = new mapboxgl.Popup({
         closeButton: false,
@@ -262,7 +264,7 @@ map.addLayer({
 
 
         "layout": {
-            "text-field": "{Community Name}",
+            "text-field": "{community}",
                         "text-offset": [1, 5.5],
 
             "text-font": ["Arial Unicode MS Bold", "Open Sans Bold"],
@@ -485,7 +487,7 @@ function statewide () {
 //                 /* other */ 'green'
 //             ])
 
-var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide" || d.Program =="Foundation Initiative")
+var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide" || d.Program =="Foundation Initiatives")
 
 statewideData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
@@ -495,7 +497,7 @@ var popMultipleState = statewideData.map(function (el) {
 
 
   return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
- <p class="indent">${el.WebTitle}</p>
+ <p class="indent">${el.Description}</p>
          <br />`
 
                 })
@@ -964,10 +966,12 @@ console.log(e.features);
                 <h3>Description: </h3>${projLoc}</div>`
 
 
+
+                
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
- <p class="indent">${el.WebTitle}</p>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">${'\u00A0\u00A0'+el.AwardAmount}</span></h4>
+ <p class="indent">${el.Description}</p>
          <br />`
 
                 })
@@ -1180,7 +1184,7 @@ default:
 
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- $${el.AwardAmount}</h4>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.AwardAmount}</span></h4>
  <p class="indent">${el.Description}</p>
          <br />`
 

@@ -3,12 +3,21 @@
 "name": "cities",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "Community Name": "Anchorage", "lat": 61.2163, "lon": -149.8948 }, "geometry": { "type": "Point", "coordinates": [ 1.973202632826908, 11.202851834156279 ] } },
-{ "type": "Feature", "properties": { "Community Name": "Bethel", "lat": 60.8021, "lon": -161.7706 }, "geometry": { "type": "Point", "coordinates": [ -3.777452089255545, 10.951698653928162 ] } },
-{ "type": "Feature", "properties": { "Community Name": "Fairbanks", "lat": 64.8357, "lon": -147.7336 }, "geometry": { "type": "Point", "coordinates": [ 2.667173609490702, 14.805128616319886 ] } },
-{ "type": "Feature", "properties": { "Community Name": "Juneau", "lat": 58.3021, "lon": -134.4106 }, "geometry": { "type": "Point", "coordinates": [ 10.136757571132808, 9.745377260706535 ] } },
-{ "type": "Feature", "properties": { "Community Name": "Kotzebue", "lat": 66.8959, "lon": -162.5869 }, "geometry": { "type": "Point", "coordinates": [ -3.384495718136433, 16.876250367317319 ] } },
-{ "type": "Feature", "properties": { "Community Name": "Nome", "lat": 64.4976, "lon": -165.3841 }, "geometry": { "type": "Point", "coordinates": [ -4.886685474275275, 14.761746179985073 ] } },
-{ "type": "Feature", "properties": { "Community Name": "Sitka", "lat": 57.0583, "lon": -135.3448 }, "geometry": { "type": "Point", "coordinates": [ 10.012390309021221, 8.423985115529669 ] } }
+{ "type": "Feature", "properties": { "community": "Anchorage", "lat": 61.2163, "lon": -149.8948 }, "geometry": { "type": "Point", "coordinates": [ 1.973202632826908, 11.202851834156279 ] } },
+{ "type": "Feature", "properties": { "community": "Wasilla", "lat": 61.5845, "lon": -149.4339 }, "geometry": { "type": "Point", "coordinates": [ 2.168992490993441, 11.578813835824723 ] } },
+{ "type": "Feature", "properties": { "community": "Chickaloon", "lat": 61.7765, "lon": -148.4933 }, "geometry": { "type": "Point", "coordinates": [ 2.598884529283361, 11.800229416792344 ] } },
+{ "type": "Feature", "properties": { "community": "Fairbanks North Star Borough", "lat": 64.8357, "lon": -147.7336 }, "geometry": { "type": "Point", "coordinates": [ 2.667173609490702, 14.805128616319886 ] } },
+{ "type": "Feature", "properties": { "community": "Fairbanks", "lat": 64.8357, "lon": -147.7336 }, "geometry": { "type": "Point", "coordinates": [ 2.667173609490702, 14.805128616319886 ] } },
+{ "type": "Feature", "properties": { "community": "Palmer", "lat": 61.5934, "lon": -149.1093 }, "geometry": { "type": "Point", "coordinates": [ 2.322256797556168, 11.598303170465678 ] } },
+{ "type": "Feature", "properties": { "community": "Nome", "lat": 64.4976, "lon": -165.3841 }, "geometry": { "type": "Point", "coordinates": [ -4.886685474275275, 14.761746179985073 ] } },
+{ "type": "Feature", "properties": { "community": "Homer", "lat": 59.6434, "lon": -151.5555 }, "geometry": { "type": "Point", "coordinates": [ 1.233609156861382, 9.610965943591859 ] } },
+{ "type": "Feature", "properties": { "community": "Kenai", "lat": 60.5537, "lon": -151.2546 }, "geometry": { "type": "Point", "coordinates": [ 1.347580325045729, 10.5164838599632 ] } },
+{ "type": "Feature", "properties": { "community": "Kodiak", "lat": 57.7962, "lon": -152.3898 }, "geometry": { "type": "Point", "coordinates": [ 0.857648628812857, 7.765553026628465 ] } },
+{ "type": "Feature", "properties": { "community": "Kivalina", "lat": 67.7258, "lon": -164.5355 }, "geometry": { "type": "Point", "coordinates": [ -4.016069985158449, 17.761091945266944 ] } },
+{ "type": "Feature", "properties": { "community": "Unalakleet", "lat": 63.8769, "lon": -160.7948 }, "geometry": { "type": "Point", "coordinates": [ -2.98949576282182, 13.900228795211932 ] } },
+{ "type": "Feature", "properties": { "community": "Unalaska", "lat": 53.8728, "lon": -166.5301 }, "geometry": { "type": "Point", "coordinates": [ -7.371742165104991, 4.544170927080733 ] } },
+{ "type": "Feature", "properties": { "community": "Anchor Point", "lat": 59.7764, "lon": -151.834 }, "geometry": { "type": "Point", "coordinates": [ 1.088761346918249, 9.737790104527891 ] } },
+{ "type": "Feature", "properties": { "community": "Sitka", "lat": 57.0583, "lon": -135.3448 }, "geometry": { "type": "Point", "coordinates": [ 10.012390309021221, 8.423985115529669 ] } },
+{ "type": "Feature", "properties": { "community": "Matanuska-Susitna Borough", "lat": 61.5845, "lon": -149.4339 }, "geometry": { "type": "Point", "coordinates": [ 2.168992490993441, 11.578813835824723 ] } }
 ]
 }
