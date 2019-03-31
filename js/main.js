@@ -496,7 +496,7 @@ var popMultipleState = statewideData.map(function (el) {
 
 
 
-  return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}-${'\u00A0\u00A0'+el.AwardAmount}</h4>
+  return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- $${el.AwardAmount.toLocaleString()}</h4>
  <p class="indent">${el.Description}</p>
          <br />`
 
@@ -970,7 +970,7 @@ console.log(e.features);
                 
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">${'\u00A0\u00A0'+el.AwardAmount}</span></h4>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${'\u00A0\u00A0'+el.AwardAmount.toLocaleString()}</span></h4>
  <p class="indent">${el.Description}</p>
          <br />`
 
@@ -1184,7 +1184,7 @@ default:
 
            var popMultiple = currentData.map(function (el) {
 
-return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.AwardAmount}</span></h4>
+return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.AwardAmount.toLocaleString()}</span></h4>
  <p class="indent">${el.Description}</p>
          <br />`
 
