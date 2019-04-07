@@ -467,6 +467,27 @@ map.setPaintProperty('ras2',  'circle-color',[
 }
 
 
+
+function initiatives() {
+  map.setFilter('ras2', ['in', 'Program', 'Foundation Initiatives']);
+  currentProgram =  "Foundation Initiatives";
+  
+  // console.log("CURR PROG");
+  // console.log(currentProgram);
+  map.setPaintProperty('ras2',  'circle-color',[
+                  'match',
+                  ['get', 'Program'],
+                  'Small Grants', '#4789c8 ',
+                  'Large Grants', '#72cac3',
+                  'Individual Artist Award', '#e09641',
+                  'Foundation Initiatives', '#c6a5b0',
+                  'Sabbatical', '#a5c6be',
+                  /* other */ 'green'
+              ])
+  
+  }
+
+
 function statewide () {
 
 // console.log("statewide function");
@@ -487,7 +508,8 @@ function statewide () {
 //                 /* other */ 'green'
 //             ])
 
-var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide" || d.Program =="Foundation Initiatives")
+// var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide" || d.Program =="Foundation Initiatives")
+var statewideData = ras_ak.filter(d=>d.ProjectLocation =="Statewide")
 
 statewideData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
@@ -846,8 +868,6 @@ document.querySelector('.statewide').classList.remove("vis");
 
 
 
-
-
 map.on('click', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
@@ -1045,12 +1065,12 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${'\u00
 
 
 
-
+//////REMOVE THE POPUP SUNDAY//
 
 
     map.on('mouseleave', 'ras2', function() {
         map.getCanvas().style.cursor = '';
-        // popup.remove();
+        popup.remove();
     });
 
   map.on('touchend', 'ras2', function() {
