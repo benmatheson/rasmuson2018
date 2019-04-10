@@ -363,6 +363,8 @@ currentProgram = 'allPrograms';
 console.log("CURR PROG");
 console.log(currentProgram);
 
+map.setPaintProperty('rasAk', 'fill-color', "white");
+
 // map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.5)");
 // map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
 
@@ -388,6 +390,7 @@ map.setFilter('ras2', ['in', 'Program', 'Small Grants']);
 currentProgram =  "Small Grants";
 
 
+map.setPaintProperty('rasAk', 'fill-color', "white");
 
 // console.log("CURR PROG");
 // console.log(currentProgram);
@@ -411,6 +414,8 @@ function t2() {
 map.setFilter('ras2', ['in', 'Program', 'Large Grants']);
 
 currentProgram =  "Large Grants";
+map.setPaintProperty('rasAk', 'fill-color', "white");
+
 // console.log("CURR PROG");
 // console.log(currentProgram);
 map.setPaintProperty('ras2',  'circle-color',[
@@ -433,6 +438,7 @@ map.setFilter('ras2', ['in', 'Program', 'Individual Artist Award']);
 currentProgram =  "Individual Artist Award";
 // console.log("CURR PROG");
 // console.log(currentProgram);
+map.setPaintProperty('rasAk', 'fill-color', "white");
 
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
@@ -451,7 +457,7 @@ function sabbatical() {
 map.setFilter('ras2', ['in', 'Program', 'Sabbatical']);
 currentProgram =  "Sabbatical";
 
-// console.log("CURR PROG");
+map.setPaintProperty('rasAk', 'fill-color', "white");
 // console.log(currentProgram);
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
@@ -472,6 +478,11 @@ function initiatives() {
   map.setFilter('ras2', ['in', 'Program', 'Foundation Initiatives']);
   currentProgram =  "Foundation Initiatives";
   
+  document.querySelector('.statewide').classList.remove("vis");
+
+console.log("PAINGINT")
+  map.setPaintProperty('rasAk', 'fill-color', "#c6a5b0");
+
   // console.log("CURR PROG");
   // console.log(currentProgram);
   map.setPaintProperty('ras2',  'circle-color',[
@@ -480,7 +491,7 @@ function initiatives() {
                   'Small Grants', '#4789c8 ',
                   'Large Grants', '#72cac3',
                   'Individual Artist Award', '#e09641',
-                  'Foundation Initiatives', '#c6a5b0',
+                  'Foundation Initiatives', 'white',
                   'Sabbatical', '#a5c6be',
                   /* other */ 'green'
               ])
@@ -489,6 +500,7 @@ function initiatives() {
 
 
 function statewide () {
+  map.setPaintProperty('rasAk', 'fill-color', "white");
 
 // console.log("statewide function");
 
@@ -524,8 +536,8 @@ var popMultipleState = statewideData.map(function (el) {
 
                 })
 
-  var popDivState = ` <div class="popupCloseButton">X</div> <h4 id="locState" style="background-color:#333333">Statewide and Other Initiatives</h4><div class="pop">${popMultipleState.join('')}</div>`
-
+  var popDivState = ` <div class="popupCloseButton">x</div> <h4 id="locState" style="background-color:#333333">Statewide and Other Initiatives</h4><div class="pop">${popMultipleState.join('')}</div>`
+  // ☓
 
 
 document.querySelector('.statewide').classList.add("vis");
@@ -534,29 +546,6 @@ document.querySelector('.statewide').classList.add("vis");
 document.querySelector('.statewideInner').innerHTML = popDivState;
 
 
-console.log("statewdieinner");
-
-console.log(document.querySelector('.statewideInner'))
-
-console.log(document.querySelector('.statewideInner').innerHTML == popDivState);
-
-// if (document.querySelector('.statewideInner') == popDivState) {
-
-// document.querySelector(".map").addEventListener('click', function () {
-
-// document.querySelector('.statewide').classList.remove("vis");
-// console.log("insdiel click");
-
-// })
-
-
-// }
-
-// document.querySelector(".map").addEventListener('click', function (e) {
-
-// e.stopPropagation()
-
-// })
 
 
 
@@ -567,11 +556,22 @@ document.querySelector('.statewide').classList.remove("vis");
 // document.querySelector('.statewideInner').classList.remove("vis");
 // console.log("functioning");
 
-
 })
+document.querySelector('.statewide').addEventListener('click', hoverAway)
+// console.log(hoveraway)
+
+document.querySelector('.statewide').addEventListener('mouseleave', hoverAway)
+// console.log(hoveraway)
 
 
 }
+
+function hoverAway (){
+console.log("hover away function")
+document.querySelector('.statewide').classList.remove("vis");
+
+}
+
 
 // console.log("CURR PROG");
 // console.log(currentProgram);
@@ -1070,8 +1070,16 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${'\u00
 
     map.on('mouseleave', 'ras2', function() {
         map.getCanvas().style.cursor = '';
+        console.log('MOUSLIEVE')
         popup.remove();
     });
+
+
+  //   map.on('mouseover', 'ras2', function() {
+  //     map.getCanvas().style.cursor = '';
+  //     console.log('newmouseover')
+  //     popup.remove();
+  // });
 
   map.on('touchend', 'ras2', function() {
         map.getCanvas().style.cursor = '';
@@ -1086,12 +1094,13 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${'\u00
 
 map.on('mouseenter', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+        // map.getCanvas().style.cursor = 'pointer';
 
-
+console.log(e.features[0].id)
+console.log(hoveredStateId)
         ///////getting from teh JSON
-
-        // popup.remove();
+// console.log("REMOVGINNN")
+        popup.remove();
 
 
     // var popup = new mapboxgl.Popup({
@@ -1103,13 +1112,11 @@ map.on('mouseenter', 'ras2', function(e) {
 //imortant
         var projLoc= e.features[0].properties['ProjectLocationMatch'];
 
-
-
         var featProgram = e.features[0].properties.Program;
         var currentData;
 
-   
-
+        console.log("PROJEDLOC")
+        console.log(projLoc)
 
 var bannerColor;
 
@@ -1129,6 +1136,10 @@ switch (currentProgram) {
 
     case "Individual Artist Award":
   bannerColor="#e09641";
+  break;
+
+    case "Foundation Initiatives":
+  bannerColor="#c6a5b0";
   break;
 
 default: 
@@ -1231,32 +1242,24 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.Aw
   //         function set () {
 
 
-        function set () {
-        popup.setLngLat(coordinates)
+//         function set () {
+//         popup.setLngLat(coordinates)
+//             .setHTML(popDiv)
+//             .addTo(map);
+
+// }
+
+// setTimeout(set, 12)
+
+
+
+
+popup.setLngLat(coordinates)
             .setHTML(popDiv)
             .addTo(map);
 
-}
-
-setTimeout(set, 18)
-
-// currentData = null;
-
-// popup.remove();
-
-// e.stopPropagation();
 
 
-// function rv() {
-
-// if (e.features[0].properties.loc != "Anchorage, AK")
-// {
-//   popup.remove();
-// }
-
-// }
-
-// // setTimeout(rv, 4100)
 
     });
 
