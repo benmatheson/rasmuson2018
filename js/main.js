@@ -502,6 +502,10 @@ console.log("PAINGINT")
 function statewide () {
   map.setPaintProperty('rasAk', 'fill-color', "white");
 
+  // document.querySelector('.statewide').classList.contains('vis') ? document.querySelector('.statewide').classList.remove("vis") : console.log("ham")
+  document.querySelector('.statewide').classList.toggle('vis')
+console.log(document.querySelector(".statewide").classList)
+
 // console.log("statewide function");
 
 // map.setFilter('ras2', ['in', 'Program', 'Foundation Initiative']);
@@ -540,7 +544,9 @@ var popMultipleState = statewideData.map(function (el) {
   // ☓
 
 
-document.querySelector('.statewide').classList.add("vis");
+
+  
+// document.querySelector('.statewide').classList.add("vis");
 // document.querySelector('.statewideInner').classList.add("vis");
 
 document.querySelector('.statewideInner').innerHTML = popDivState;
@@ -865,6 +871,9 @@ document.querySelector('.statewide').classList.remove("vis");
 
 //////////###########trying click//////////
 
+
+
+// document.querySelector('.statewide').classList.includes('vis') ? document.querySelector('.statewide').classList.remove("vis"): document.querySelector('.statewide').classList.add("vis") 
 
 
 
