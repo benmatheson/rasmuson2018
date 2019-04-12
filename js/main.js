@@ -481,7 +481,8 @@ function initiatives() {
   document.querySelector('.statewide').classList.remove("vis");
 
 console.log("PAINGINT")
-  map.setPaintProperty('rasAk', 'fill-color', "#c6a5b0");
+  // map.setPaintProperty('rasAk', 'fill-color', "#c6a5b0");
+  map.setPaintProperty('rasAk', 'fill-color', "#dac026");
 
   // console.log("CURR PROG");
   // console.log(currentProgram);
@@ -540,7 +541,7 @@ var popMultipleState = statewideData.map(function (el) {
 
                 })
 
-  var popDivState = ` <div class="popupCloseButton">x</div> <h4 id="locState" style="background-color:#333333">Statewide and Other Initiatives</h4><div class="pop">${popMultipleState.join('')}</div>`
+  var popDivState = ` <div class="popupCloseButton">x</div> <h4 id="locState" style="background-color:#333333">Statewide</h4><div class="pop">${popMultipleState.join('')}</div>`
   // ☓
 
 
@@ -1077,11 +1078,16 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${'\u00
 //////REMOVE THE POPUP SUNDAY//
 
 
-    map.on('mouseleave', 'ras2', function() {
-        map.getCanvas().style.cursor = '';
-        console.log('MOUSLIEVE')
-        popup.remove();
-    });
+    // map.on('mouseleave', 'ras2', function(e) {
+    //     map.getCanvas().style.cursor = '';
+    //     // console.log('e');
+       
+    //     // setTimeout(function () {popup.remove();}, 4000)
+    //     console.log(e.target)
+
+    //     //might have to querey rentdered features
+    //     e.target == "Anchorage" ? console.log('bet') : popup.remove()
+    // });
 
 
   //   map.on('mouseover', 'ras2', function() {
@@ -1101,15 +1107,15 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${'\u00
 
 //#########mouseover
 
-map.on('mouseenter', 'ras2', function(e) {
+map.on('mousemove', 'ras2', function(e) {
         // Change the cursor style as a UI indicator.
         // map.getCanvas().style.cursor = 'pointer';
 
-console.log(e.features[0].id)
-console.log(hoveredStateId)
+// console.log(e.features[0].id)
+// console.log(hoveredStateId)
         ///////getting from teh JSON
 // console.log("REMOVGINNN")
-        popup.remove();
+        // popup.remove();
 
 
     // var popup = new mapboxgl.Popup({
@@ -1124,8 +1130,8 @@ console.log(hoveredStateId)
         var featProgram = e.features[0].properties.Program;
         var currentData;
 
-        console.log("PROJEDLOC")
-        console.log(projLoc)
+        // console.log("PROJEDLOC")
+        // console.log(projLoc)
 
 var bannerColor;
 
@@ -1149,6 +1155,7 @@ switch (currentProgram) {
 
     case "Foundation Initiatives":
   bannerColor="#c6a5b0";
+  bannerColor="#dac026 ";
   break;
 
 default: 
@@ -1231,6 +1238,7 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.Aw
                 })
 
                 var popDiv = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultiple.join('')}</div>`
+                var popDivFound = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultiple.slice(0,3).join('')}</div><h4 id="loc" style="background-color:${bannerColor}">Statewide</h4><div class="pop">${popMultiple.slice(3).join('')}</div>`
 
 
 // <div style="background-color:${bannerColor}" class="popUpLine"></div>
@@ -1262,12 +1270,46 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.Aw
 
 
 
-
+currentProgram == "Foundation Initiatives" ?
 popup.setLngLat(coordinates)
+            .setHTML(popDivFound)
+            .addTo(map) : popup.setLngLat(coordinates)
             .setHTML(popDiv)
-            .addTo(map);
+            .addTo(map)
 
 
+projLoc !== "Anchorage" && projLoc !== "Kenai" && projLoc !== "Fairbanks" && projLoc !== "Juneau" ?  rem() : keep1();
+
+function rem () {
+  map.on('mouseleave', 'ras2', function(g) {
+    map.getCanvas().style.cursor = '';
+    // console.log('e');
+  // console.log(g) 
+    // setTimeout(function () {popup.remove();}, 4000)
+    // console.log(e.target)
+    // console.log(e.popup)
+    var f = map.queryRenderedFeatures(g.point)[0];
+    // var f = map.queryRenderedFeatures(e.point);
+    // console.log(e.point)
+    console.log('f')
+    console.log(f)
+    //might have to querey rentdered features
+   popup.remove();
+    // projLoc == "Anchorage" ? console.log('bet') : popup.remove()
+})
+
+
+function keep1 () {
+  map.on('mouseleave', 'ras2', function(d) {
+
+    console.log("keepign anc")
+
+
+  })
+
+}
+
+}
 
 
     });
