@@ -1,5 +1,6 @@
 // console.log("RASAK");
 // console.log(ras_ak);
+var akColor= "rgba(0,0,0,.14)";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'
 
@@ -59,7 +60,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtb
 var map = new mapboxgl.Map({
   container: 'map1',
   // style: 'mapbox://styles/mapbox/light-v9',
-  style: 'mapbox://styles/benmatheson/cjh2yaf301jjm2sru7r1uz7n7',
+  // style: 'mapbox://styles/benmatheson/cjh2yaf301jjm2sru7r1uz7n7',
+  style: 'mapbox://styles/benmatheson/cjultmvr233uf1fmc5ff8pl6o',
   center: [-1,12],
   zoom: 4.2
 //   "transition": {
@@ -149,7 +151,9 @@ map.addSource('rasShape', {
 
     'paint': {
 
-            "fill-color": "#f4f4f2"
+            // "fill-color": "#f4f4f2"
+            "fill-color": akColor
+          
 
     }
 
@@ -358,12 +362,14 @@ var currentProgram = 'allPrograms';
 function allGrants () { 
 
 map.setFilter('ras2', ['in', 'Program', 'Small Grants', 'Large Grants', 'Sabbatical', "Individual Artist Award"]);
+map.setPaintProperty('rasAk', 'fill-pattern', null);
 
 currentProgram = 'allPrograms';
 console.log("CURR PROG");
 console.log(currentProgram);
 
-map.setPaintProperty('rasAk', 'fill-color', "white");
+map.setPaintProperty('rasAk', 'fill-color', akColor);
+map.setPaintProperty('rasAk', 'fill-pattern', null);
 
 // map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.5)");
 // map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
@@ -390,7 +396,9 @@ map.setFilter('ras2', ['in', 'Program', 'Small Grants']);
 currentProgram =  "Small Grants";
 
 
-map.setPaintProperty('rasAk', 'fill-color', "white");
+// map.setPaintProperty('rasAk', 'fill-color', "white");
+map.setPaintProperty('rasAk', 'fill-color', akColor);
+map.setPaintProperty('rasAk', 'fill-pattern', null);
 
 // console.log("CURR PROG");
 // console.log(currentProgram);
@@ -414,7 +422,8 @@ function t2() {
 map.setFilter('ras2', ['in', 'Program', 'Large Grants']);
 
 currentProgram =  "Large Grants";
-map.setPaintProperty('rasAk', 'fill-color', "white");
+map.setPaintProperty('rasAk', 'fill-color', akColor);
+map.setPaintProperty('rasAk', 'fill-pattern', null);
 
 // console.log("CURR PROG");
 // console.log(currentProgram);
@@ -438,7 +447,8 @@ map.setFilter('ras2', ['in', 'Program', 'Individual Artist Award']);
 currentProgram =  "Individual Artist Award";
 // console.log("CURR PROG");
 // console.log(currentProgram);
-map.setPaintProperty('rasAk', 'fill-color', "white");
+map.setPaintProperty('rasAk', 'fill-color', akColor);
+map.setPaintProperty('rasAk', 'fill-pattern', null);
 
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
@@ -456,8 +466,9 @@ map.setPaintProperty('ras2',  'circle-color',[
 function sabbatical() {
 map.setFilter('ras2', ['in', 'Program', 'Sabbatical']);
 currentProgram =  "Sabbatical";
+map.setPaintProperty('rasAk', 'fill-pattern', null);
 
-map.setPaintProperty('rasAk', 'fill-color', "white");
+map.setPaintProperty('rasAk', 'fill-color', akColor);
 // console.log(currentProgram);
 map.setPaintProperty('ras2',  'circle-color',[
                 'match',
@@ -482,7 +493,19 @@ function initiatives() {
 
 console.log("PAINGINT")
   // map.setPaintProperty('rasAk', 'fill-color', "#c6a5b0");
-  map.setPaintProperty('rasAk', 'fill-color', "#dac026");
+
+
+  map.loadImage('img/diag4.png', function(err, image) {
+
+console.log("loading image")
+  map.addImage('pattern', image);
+  map.setPaintProperty('rasAk', 'fill-pattern', "pattern");
+
+  })
+
+  //#e5d67d for the full state 
+  // map.setPaintProperty('rasAk', 'fill-color', "#dac026");
+  // map.setPaintProperty('rasAk', 'fill-color', "red");
 
   // console.log("CURR PROG");
   // console.log(currentProgram);
@@ -492,7 +515,7 @@ console.log("PAINGINT")
                   'Small Grants', '#4789c8 ',
                   'Large Grants', '#72cac3',
                   'Individual Artist Award', '#e09641',
-                  'Foundation Initiatives', 'white',
+                  'Foundation Initiatives', '#dac026',
                   'Sabbatical', '#a5c6be',
                   /* other */ 'green'
               ])
@@ -501,7 +524,7 @@ console.log("PAINGINT")
 
 
 function statewide () {
-  map.setPaintProperty('rasAk', 'fill-color', "white");
+  map.setPaintProperty('rasAk', 'fill-color', akColor);
 
   // document.querySelector('.statewide').classList.contains('vis') ? document.querySelector('.statewide').classList.remove("vis") : console.log("ham")
   document.querySelector('.statewide').classList.toggle('vis')
@@ -1278,7 +1301,7 @@ popup.setLngLat(coordinates)
             .addTo(map)
 
 
-projLoc !== "Anchorage" && projLoc !== "Kenai" && projLoc !== "Fairbanks" && projLoc !== "Juneau" ?  rem() : keep1();
+projLoc !== "Anchorage" && projLoc !== "Kenai" && projLoc !== "Fairbanks" && projLoc !== "Juneau"  && projLoc !== "Wasilla"?  rem() : keep1();
 
 function rem () {
   map.on('mouseleave', 'ras2', function(g) {

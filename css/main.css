@@ -657,9 +657,11 @@ right: 10%;
 
 position: absolute;
 display: flex;
-justify-content: space-between;
+justify-content: left;
 flex-direction: row;
+flex-wrap: wrap;
 top: 84%;
+/* bottom: 1300px; */
 left: 4px;
 width:97%;
 
@@ -676,20 +678,22 @@ z-index: 95;
 
 background-color: rgba(255,255,255,.88);
 
-width: 70px;
+width: 65px;
 /*height: 30px;*/
-padding: 3px;
+padding: 2px;
+/* padding-right: 5px; */
 /*margin-top: px;*/
-margin: 3px;
+margin: 2px;
 border: none;
 border-radius: 2px;
 /*font-weight: bold;*/
-height: 80px;
-font-size: .7rem;
-line-height: 97%;
+height: 40px;
+font-size: .5rem;
+line-height: 98%;
 
 /*color: pink;*/
     font-family: sans-serif;
+    text-align: center;
 /*-webkit-font-smoothing: none*/
 
 
@@ -705,7 +709,7 @@ line-height: 97%;
     border-radius: 50%;
     /*display: inline-block;*/
     display: block;
-    float: center;
+    float: left;
     /*margin-right: 3px;*/
 }
 
