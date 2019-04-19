@@ -1,6 +1,8 @@
 // console.log("RASAK");
 // console.log(ras_ak);
-var akColor= "rgba(0,0,0,.14)";
+// var akColor= "rgba(0,0,0,.14)";
+var akColor= "rgba(0,0,0,.08)";
+;
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'
 
@@ -495,7 +497,7 @@ console.log("PAINGINT")
   // map.setPaintProperty('rasAk', 'fill-color', "#c6a5b0");
 
 
-  map.loadImage('img/diag4.png', function(err, image) {
+  map.loadImage('img/diag6.png', function(err, image) {
 
 console.log("loading image")
   map.addImage('pattern', image);
