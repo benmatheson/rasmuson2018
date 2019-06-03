@@ -35,8 +35,9 @@ var map = new mapboxgl.Map({
   // style: 'mapbox://styles/mapbox/light-v9',
   // style: 'mapbox://styles/benmatheson/cjh2yaf301jjm2sru7r1uz7n7',
   style: 'mapbox://styles/benmatheson/cjultmvr233uf1fmc5ff8pl6o',
-  center: [-1, 12],
-  zoom: 4.2 //   "transition": {
+  center: [1, 12],
+  zoom: 4.7 //was 4.2
+  //   "transition": {
   //   "duration": 800
   //   // "delay": 200
   // }
